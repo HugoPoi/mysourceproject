@@ -1,0 +1,46 @@
+# script créé le : Tue Mar 05 15:15:39 CET 2013 -   syntaxe MySQL ;
+
+# use  VOTRE_BASE_DE_DONNEE ;
+
+DROP TABLE IF EXISTS Utilisateur ;
+CREATE TABLE Utilisateur (ID_Utilisateur int AUTO_INCREMENT NOT NULL,
+Type_Utilisateur VARCHAR,
+Nom_Utilisateur VARCHAR,
+Prenom_Utilisateur VARCHAR,
+Sexe_Utilisateur VARCHAR,
+Mail_Utilisateur VARCHAR,
+Numero_PayPal INT,
+Rang_Utilisateur INT,
+mot_de_passe VARCHAR,
+PRIMARY KEY (ID_Utilisateur) ) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS Projet ;
+CREATE TABLE Projet (ID_Projet int AUTO_INCREMENT NOT NULL,
+Titre_Projet VARCHAR,
+Path_Projet VARCHAR,
+Prix_projet DOUBLE,
+Path_Code_Demo VARCHAR,
+Description_Projet VARCHAR,
+ID_Utilisateur INT,
+ID_Categorie INT,
+ID_Achat INT,
+PRIMARY KEY (ID_Projet) ) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS Achat ;
+CREATE TABLE Achat (ID_Achat int AUTO_INCREMENT NOT NULL,
+Date_Achat DATE,
+ID_Utilisateur INT,
+ID_Projet INT,
+PRIMARY KEY (ID_Achat) ) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS Categorie ;
+CREATE TABLE Categorie (ID_Categorie int AUTO_INCREMENT NOT NULL,
+Nom INT,
+PRIMARY KEY (ID_Categorie) ) ENGINE=InnoDB;
+
+ALTER TABLE Projet ADD CONSTRAINT FK_Projet_ID_Utilisateur FOREIGN KEY (ID_Utilisateur) REFERENCES Utilisateur (ID_Utilisateur);
+
+ALTER TABLE Projet ADD CONSTRAINT FK_Projet_ID_Categorie FOREIGN KEY (ID_Categorie) REFERENCES Categorie (ID_Categorie);
+ALTER TABLE Projet ADD CONSTRAINT FK_Projet_ID_Achat FOREIGN KEY (ID_Achat) REFERENCES Achat (ID_Achat);
+ALTER TABLE Achat ADD CONSTRAINT FK_Achat_ID_Utilisateur FOREIGN KEY (ID_Utilisateur) REFERENCES Utilisateur (ID_Utilisateur);
+ALTER TABLE Achat ADD CONSTRAINT FK_Achat_ID_Projet FOREIGN KEY (ID_Projet) REFERENCES Projet (ID_Projet);
