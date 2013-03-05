@@ -8,24 +8,24 @@
 </head>
 <body>
 <div class="container-fluid">
-<header class="row">
+<header class="row blue-border">
   <div class="span3"><img src="img/logo3.png"/></div>
-  <div class="span6"><h1>My Source Project</h1><p>Tous les projets ont un début</p></div>
-  <div class="span3">
+  <div class="span6 main-title"><h1>My Source Project</h1><p>Tous les projets ont un début</p></div>
+  <div class="span3 login-box">
     <form>
       <fieldset>
-        <legend>Mon Compte</legend>
         <input type="text" placeholder="Login">
         <input type="password" placeholder="Password">
-        <button type="submit" class="btn">Se connecter</button>
+        <button type="submit" class="btn btn-mini btn-primary">Se connecter</button>
+        <button type="submit" class="btn btn-mini">S'enregistrer</button>
       </fieldset>
     </form>
   </div>
 </header>
 </div>
 <div class="container-fluid">
-  <div class="row">
-    <nav class="span3">
+  <div class="row container-nav">
+    <nav class="span3 blue-border">
       <ul class="nav nav-list">
         <li class="active"><a href="#">Home</a></li>
         <li class="nav-header">Plateforme</li>
@@ -40,15 +40,44 @@
         <li><a href="#">C++</a></li>
       </ul>
     </nav>
-    <div class="offset1 span8 main">
-      <div class="row">
-        <section class="span4"><img src="img/piano.jpg"/>Piano Virtuel</section>
-        <section class="span4"><img src="img/cplusplus.jpg"/>Grep C</section>
+    <div class="offset1 span8 main blue-border">
+    <div id="myCarousel" class="carousel slide">
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <!-- Carousel items -->
+    <div class="carousel-inner">
+      <div class="active item">      <div class="row">
+        <section class="span4"><img src="img/piano.jpg" class="img-rounded"/><br/>Piano Virtuel sur Linux</section>
+        <section class="span4"><img src="img/miniature/min0001.jpg" class="img-rounded"/><br/>Grep C++</section>
       </div>
       <div class="row">
-        <section class="span4"><img src="img/php.jpg"/>PHP CMS</section>
-        <section class="span4"><img src="img/html.jpg"/>Piano Virtuel ESGI</section>
+        <section class="span4"><img src="img/miniature/min0002.jpg" class="img-rounded"/><br/>PHP CMS</section>
+        <section class="span4"><img src="img/miniature/min0003.jpg" class="img-rounded"/><br/>Piano Virtuel ESGI</section>
+      </div></div>
+      <div class="item">      <div class="row">
+        <section class="span4"><img src="img/miniature/min0004.jpg" class="img-rounded"/><br/>Piano Virtuel sur Linux</section>
+        <section class="span4"><img src="img/miniature/min0005.jpg" class="img-rounded"/><br/>Grep C++</section>
       </div>
+      <div class="row">
+        <section class="span4"><img src="img/miniature/min0006.jpg" class="img-rounded"/><br/>PHP CMS</section>
+        <section class="span4"><img src="img/miniature/min0007.jpg" class="img-rounded"/><br/>Piano Virtuel ESGI</section>
+      </div></div>
+      <div class="item">      <div class="row">
+        <section class="span4"><img src="img/miniature/min0008.jpg" class="img-rounded"/><br/>Piano Virtuel sur Linux</section>
+        <section class="span4"><img src="img/miniature/min0009.jpg" class="img-rounded"/><br/>Grep C++</section>
+      </div>
+      <div class="row">
+        <section class="span4"><img src="img/miniature/min00010.jpg" class="img-rounded"/><br/>PHP CMS</section>
+        <section class="span4"><img src="img/miniature/min00011.jpg" class="img-rounded"/><br/>Piano Virtuel ESGI</section>
+      </div></div>
+    </div>
+    <!-- Carousel nav -->
+    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div>
     </div>
   </div>
 </div>
