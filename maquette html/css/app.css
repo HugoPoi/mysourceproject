@@ -38,6 +38,29 @@ nav a {
   box-shadow: 0px 0px 5px 1px rgba(0, 136, 204, 1);
 }
 
+/* DEBUT CSS PAGE DE DEPOT DE PROJET */
+
+.marge {
+	margin-top: 30px;
+	margin-left:65px;
+	margin-bottom:30px;
+}
+
+
+.span4 {
+	margin-top:24px;
+	margin-left: -7%;
+	
+}
+
+.marge_send {
+margin-top: 30px;
+margin-left: -102px;
+margin-bottom: 34px;
+}
+
+/* FIN DE CSS DU DEPOT DE PROJET */
+
 .login-box{
 margin: 1em;
 margin-left: 60px;
