@@ -4,23 +4,23 @@
 
 DROP TABLE IF EXISTS Utilisateur ;
 CREATE TABLE Utilisateur (ID_Utilisateur int AUTO_INCREMENT NOT NULL,
-Type_Utilisateur VARCHAR,
-Nom_Utilisateur VARCHAR,
-Prenom_Utilisateur VARCHAR,
-Sexe_Utilisateur VARCHAR,
-Mail_Utilisateur VARCHAR,
+Type_Utilisateur VARCHAR(30),
+Nom_Utilisateur VARCHAR(30),
+Prenom_Utilisateur VARCHAR(30),
+Sexe_Utilisateur VARCHAR(5),
+Mail_Utilisateur VARCHAR(30),
 Numero_PayPal INT,
 Rang_Utilisateur INT,
-mot_de_passe VARCHAR,
+mot_de_passe VARCHAR(30),
 PRIMARY KEY (ID_Utilisateur) ) ENGINE=InnoDB;
 
 DROP TABLE IF EXISTS Projet ;
 CREATE TABLE Projet (ID_Projet int AUTO_INCREMENT NOT NULL,
-Titre_Projet VARCHAR,
-Path_Projet VARCHAR,
+Titre_Projet VARCHAR(100),
+Path_Projet VARCHAR(100),
 Prix_projet DOUBLE,
-Path_Code_Demo VARCHAR,
-Description_Projet VARCHAR,
+Path_Code_Demo VARCHAR(100),
+Description_Projet VARCHAR(300),
 ID_Utilisateur INT,
 ID_Categorie INT,
 ID_Achat INT,
@@ -35,7 +35,7 @@ PRIMARY KEY (ID_Achat) ) ENGINE=InnoDB;
 
 DROP TABLE IF EXISTS Categorie ;
 CREATE TABLE Categorie (ID_Categorie int AUTO_INCREMENT NOT NULL,
-Nom INT,
+Nom VARCHAR(30) UNIQUE ,
 PRIMARY KEY (ID_Categorie) ) ENGINE=InnoDB;
 
 ALTER TABLE Projet ADD CONSTRAINT FK_Projet_ID_Utilisateur FOREIGN KEY (ID_Utilisateur) REFERENCES Utilisateur (ID_Utilisateur);
