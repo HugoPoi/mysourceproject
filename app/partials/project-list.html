@@ -1,6 +1,6 @@
 <div id="myCarousel" class="carousel slide">
   <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" ng-class="{active : $first}" ng-repeat="project4 in projects"></li>
+    <li data-target="#myCarousel" data-slide-to="{{$index}}" ng-class="{active : $first}" ng-repeat="project4 in projects"></li>
   </ol>
   <!-- Carousel items -->
   <div class="carousel-inner">
