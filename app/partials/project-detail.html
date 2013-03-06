@@ -1,49 +1,43 @@
- <div class="offset1 span8 main blue-border">
-      <div class="row">
-        <div class="span2"><img ng-src="img/{{project.img}}"/>
-          <p> {{project.note}}</p>
-          <span class="rating"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></span>
-          <p> {{project.price }}</p>
-          <button class="btn">Acheter</button>
-        </div>
-        <div class="span6">
-          <h2>{{project.name}}</h2>
-          <p>{{project.description}}</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="span3"></div>
-        <div class="span5">
-          <table class="table table-condensed">
-            <tr>
-              <td><img ng-src="img/{{project.img}}"/></td>
-              <td><img ng-src="img/{{project.img}}"/>
-          </table>
-        </div>
-      </div>
-    <div class=" span8 main blue-border position_comment">
-	<div class="row">
-	<div class="span4"><p><h4>Avis utilisateurs</h4></p></div></div>
- <div id="myCarousel" class="carousel slide">
-        <ol class="carousel-indicators">
-           <li data-target="#myCarousel" data-slide-to="0" ng-class="{active : $first}" ng-repeat="commentaire in project.commentaires"></li>
-        </ol>
-		
-        <!-- Carousel items -->
-
-		 <div class="item" ng-class="{active : $first}" ng-repeat="commentaire in project.commentaires">
-          
-            <div class="row">
-				<div class="span1"></div>
-			<div class="span5">
-              <section class="span4" >{{commentaire.username}}</section>
-              <section class="span4" >{{commentaire.content}}</section>
-            </div></div>
-				<div class="span2"></div>
-				</div>
-        </div>  
-        <!-- Carousel nav --> 
-		
-        <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a> <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a> </div>
-       </div>
+<div class="row">
+  <div class="span2"><img ng-src="img/{{project.img}}"/>
+    <p> {{project.note}}</p>
+    <span class="rating"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></span>
+    <p> {{project.price }}</p>
+    <button class="btn">Acheter</button>
+  </div>
+  <div class="span6">
+    <h2>{{project.name}}</h2>
+    <p>{{project.description}}</p>
+  </div>
+</div>
+<div class="row">
+  <div class="offset3 span5">
+    <table class="table table-condensed">
+      <tr>
+        <td><img ng-src="img/{{project.img}}"/></td>
+        <td><img ng-src="img/{{project.img}}"/>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="offset1 span6 blue-border">
+    <h4>Avis utilisateurs</h4>
+    <div id="myCarousel" class="carousel slide">
+      <ol class="carousel-indicators">
+         <li data-target="#myCarousel" data-slide-to="0" ng-class="{active : $first}" ng-repeat="commentaire in project.commentaires"></li>
+      </ol>
+      <!-- Carousel items -->
+        <div class="item" ng-class="{active : $first}" ng-repeat="commentaire in project.commentaires">
+          <div class="row">
+            <div class="span5">
+                <section class="span4" >{{commentaire.username}}</section>
+                <section class="span4" >{{commentaire.content}}</section>
+            </div>
+          </div>
+        </div> 
+      <!-- Carousel nav --> 
+      <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+      <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
     </div>
+  </div>
+</div>

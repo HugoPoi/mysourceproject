@@ -11,7 +11,7 @@ angular.module('mySourceProjectDirectives', []).directive('mainNavigation', func
     restrict: 'A',
     scope: false,
     controller: 'NavigationCtrl'
-  };
+    };
   return directiveDefinitionObject;
 }).directive('user', function() {
   var directiveDefinitionObject = {

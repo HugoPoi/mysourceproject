@@ -22,9 +22,9 @@ function ProjectListCtrl($scope, Project) {
 
 }
 
-function ProjectDetailCtrl($scope, $routeParams, Project) {
-  Phone.query({projectId: $routeParams.projectId}, function(project) {
-    $scope.project = project;
+function ProjectDetailCtrl($scope, $routeParams, Project, $location) {
+  Project.query({projectId: $routeParams.projectId}, function(project) {
+    $scope.project = project[0];
   });
 
   /*$scope.setImage = function(imageUrl) {
@@ -32,6 +32,10 @@ function ProjectDetailCtrl($scope, $routeParams, Project) {
   }*/
 }
 
-function NavigationCtrl($scope, Categorie){
+function NavigationCtrl($scope,$routeParams,$location, $rootScope, Categorie){
   $scope.categories = Categorie.query();
+  $scope.ishome = ($location.path() =='/home');
+  $rootScope.$on('$routeChangeSuccess', function(){
+    $scope.ishome = ($location.path() =='/home');
+  });
 }
