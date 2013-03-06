@@ -2,8 +2,20 @@
 
 /* Controllers */
 
-function ProjectListCtrl($scope, Phone) {
-  $scope.projects = Project.query();
+function ProjectListCtrl($scope, Project) {
+    Project.query(null, function(projects){
+    console.log(projects);
+    var viewprojects = [];
+    for(var i = 0; i < projects.length; i++){
+            console.log("test"+ (i%2));
+      if(i%2 == 0){
+        viewprojects.push([projects[i],projects[i+1]]);
+      }
+    }
+    console.log(viewprojects);
+    $scope.projects = viewprojects;
+  });
+
   //$scope.orderProp = 'age';
 }
 
