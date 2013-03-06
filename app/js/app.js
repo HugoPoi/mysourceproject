@@ -6,6 +6,6 @@ angular.module('mySourceProject', ['mySourceProjectFilters', 'mySourceProjectSer
   config(['$routeProvider', function($routeProvider) {
   $routeProvider.
       when('/home', {templateUrl: 'partials/project-list.html',   controller: ProjectListCtrl}).
-      /*when('/phones/:phoneId', {templateUrl: 'partials/phone-detail.html', controller: PhoneDetailCtrl}).*/
+      when('/project/:projectId', {templateUrl: 'partials/project-detail.html', controller: ProjectDetailCtrl}).
       otherwise({redirectTo: '/home'});
 }]);
