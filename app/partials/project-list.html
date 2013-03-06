@@ -6,7 +6,7 @@
   <div class="carousel-inner">
     <div class="item" ng-class="{active : $first}" ng-repeat="project4 in projects">
       <div class="row">
-        <section ng-repeat="project in project4" class="span4"><img ng-src="img/{{project.img}}" class="img-rounded"/><br/>{{project.name}}</section>
+        <section ng-repeat="project in project4" class="span4"><a href="#/project/{{project.id}}"><img ng-src="img/{{project.img}}" class="img-rounded"/><br/>{{project.name}}</a></section>
       </div>
     </div>
   </div>

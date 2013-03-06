@@ -9,7 +9,19 @@ angular.module('mySourceProjectDirectives', []).directive('mainNavigation', func
     replace: true,
     transclude: false,
     restrict: 'A',
-    scope: false
+    scope: false,
+    controller: 'NavigationCtrl'
+  };
+  return directiveDefinitionObject;
+}).directive('user', function() {
+  var directiveDefinitionObject = {
+    priority: 0,
+    templateUrl: 'partials/user.html',
+    replace: true,
+    transclude: false,
+    restrict: 'A',
+    scope: false,
+    //controller: 'UserCtrl'
   };
   return directiveDefinitionObject;
 });

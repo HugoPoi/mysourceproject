@@ -7,4 +7,8 @@ angular.module('mySourceProjectServices', ['ngResource']).
   return $resource('projects/:projectId.json', {}, {
     query: {method:'GET', params:{projectId:'all'}, isArray:true}
   });
+}).factory('Categorie', function($resource){
+  return $resource('projects/categorie.json', {}, {
+    query: {method:'GET', params:{} , isArray:true}
+  });
 });
