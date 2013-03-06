@@ -51,9 +51,10 @@
     <nav class="span3 blue-border position">
       <ul class="nav nav-list">
         <li class="active"><a href="#">Recherche </a> <br/>
-          <form>
-            <input type="text"/>
-          </form>
+              <form class="form-search">
+    <input type="text" class="input-medium search-query">
+    <button type="submit" class="btn-mini">Search</button>
+    </form>
         </li>
       </ul>
     </nav>
@@ -81,18 +82,42 @@
         </div>
       </div>
     <div class=" span8 main blue-border position_comment">
-      <div id="myCarousel" class="carousel slide">
+	<div class="row">
+	<div class="span4"><p><h4>Avis</h4></p></div></div>
+ <div id="myCarousel" class="carousel slide">
         <ol class="carousel-indicators">
           <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
           <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
         </ol>
+		
         <!-- Carousel items -->
         <div class="carousel-inner">
-            <p> Nom : </p>
-    <p> Commentaire : </p>
-        </div>
+          <div class="active item">
+            <div class="row">
+			<div class="span1"></div>
+			<div class="span5"> 
+              <section class="span4">Nom : Coulibali </section>
+              <section class="span4">Commentaire : C'est trop bien !! dsgeshrsthrstherthtrrathzrthrzthzrhrhrzthzrthzthrhttttttttttttttttttttttttt</section>
+            </div></div>
+				<div class="span2"></div>
+				</div>
+          
+		  <div class="item">
+          
+            <div class="row">
+				<div class="span1"></div>
+			<div class="span5">
+              <section class="span4">Nom : Gameiro</section>
+              <section class="span4">Commentaire : Purée trop bien franchement ! ethethhethetttttttttttttttttttttttttttttttttttttttt</section>
+            </div></div>
+				<div class="span2"></div>
+				</div>
+        </div>  
         <!-- Carousel nav --> 
+		
         <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a> <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a> </div>
+       </div>
     </div>
     </div>
     </div>
