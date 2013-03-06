@@ -133,3 +133,10 @@ color: #e3cf7a;
 }
 
 .main{padding:5px;}
+
+.carousel-control {
+  top: 50%;
+  color: #0088CC;
+  border: none;
+  background-color: initial;
+}
