@@ -4,12 +4,16 @@
 
 function ProjectListCtrl($scope, Project) {
     Project.query(null, function(projects){
-    console.log(projects);
     var viewprojects = [];
     for(var i = 0; i < projects.length; i++){
-            console.log("test"+ (i%2));
-      if(i%2 == 0){
-        viewprojects.push([projects[i],projects[i+1]]);
+      if(i%4 == 0){
+        var container = [];
+        for(var j = 0 ; j < 4 ; j++){
+          if(projects[i+j] !== undefined){
+            container.push(projects[i+j]);
+          }else break;
+        }
+        viewprojects.push(container);
       }
     }
     console.log(viewprojects);
