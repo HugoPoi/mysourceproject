@@ -59,6 +59,14 @@ margin-bottom: 34px;
 
 /* FIN DE CSS DU DEPOT DE PROJET */
 
+/* DEBUT DE CSS DE LA PAGE D'ADMINISTRATION */
+
+.admin_title {
+	margin-left: 31%;
+}
+
+/* FIN DU CSS DE LA PAGE D'ADMINISTRATION */
+
 .login-box{
 margin: 1em;
 margin-left: 60px;
