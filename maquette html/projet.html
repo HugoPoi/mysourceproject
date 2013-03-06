@@ -9,24 +9,25 @@
 </head>
 <body>
 <div class="container-fluid">
-<header class="row blue-border">
-  <div class="span3"><img src="img/logo3.png"/></div>
- <div class="span6 main-title"><h1>My Source Project</h1><p>Tous les projets ont un début</p></div>
-  <div class="span3 login-box">
-    <form>
-      <fieldset>
-        <div class="input-prepend">
-        <span class="add-on"><i class="icon-user"></i></span>
-          <input class="input-medium" type="text" placeholder="Login">
-        </div>
-        <input type="password" style="width:177px;" placeholder="Password">
-        <button type="submit" class="btn btn-mini btn-primary">Se connecter</button>
-        <button type="submit" class="btn btn-mini">S'enregistrer</button>
-      </fieldset>
-    </form>
- 
-  </div>
-</header>
+  <header class="row blue-border">
+    <div class="span3"><img src="img/logo3.png"/></div>
+    <div class="span6 main-title">
+      <h1>My Source Project</h1>
+      <p>Tous les projets ont un début</p>
+    </div>
+    <div class="span3 login-box">
+      <form>
+        <fieldset>
+          <div class="input-prepend"> <span class="add-on"><i class="icon-user"></i></span>
+            <input class="input-medium" type="text" placeholder="Login">
+          </div>
+          <input type="password" style="width:177px;" placeholder="Password">
+          <button type="submit" class="btn btn-mini btn-primary">Se connecter</button>
+          <button type="submit" class="btn btn-mini">S'enregistrer</button>
+        </fieldset>
+      </form>
+    </div>
+  </header>
 </div>
 <div class="container-fluid">
   <div class="row container-nav">
@@ -43,26 +44,61 @@
         <li><a href="#">PHP</a></li>
         <li><a href="#">Java</a></li>
         <li><a href="#">C++</a></li>
+        <li class="nav-header">Upload</li>
+        <li><a href="#">D&eacute;pot de projet</a></li>
+      </ul>
+    </nav>
+    <nav class="span3 blue-border position">
+      <ul class="nav nav-list">
+        <li class="active"><a href="#">Recherche </a> <br/>
+          <form>
+            <input type="text"/>
+          </form>
+        </li>
       </ul>
     </nav>
     <div class="offset1 span8 main blue-border">
       <div class="row">
-      <div class="span2"><img src="img/piano.jpg"/><p>Note : 15/20</p>
-      <span class="rating"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></span>
-      <button class="btn">Acheter</button></div>
-      <div class="span6"><h2>Piano Virtuel</h2>
-      <p>Description : Piano virtuel complet pour Ipad, source complète.Quid? qui se etiam nunc subsidiis patrimonii aut amicorum liberalitate sustentant, hos perire patiemur? An, si qui frui publico non potuit per hostem, hic tegitur ipsa lege censoria; quem is frui non sinit, qui est, etiamsi non appellatur, hostis, huic ferri auxilium non oportet? Retinete igitur in provincia diutius eum, qui de sociis cum hostibus, de civibus cum sociis faciat pactiones, qui hoc etiam se pluris esse quam collegam putet, quod ille vos tristia voltuque deceperit, ipse numquam se minus quam erat, nequam esse simularit. Piso autem alio quodam modo gloriatur se brevi tempore perfecisse, ne Gabinius unus omnium nequissimus existimaretur.</p>
-       </div>
+        <div class="span2"><img src="img/piano.jpg"/>
+          <p>Note : 15/20</p>
+          <span class="rating"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></span>
+          <p> Prix : 0.50€ </p>
+          <button class="btn">Acheter</button>
+        </div>
+        <div class="span6">
+          <h2>Piano Virtuel</h2>
+          <p>Description : Piano virtuel complet pour Ipad, source complète.Quid? qui se etiam nunc subsidiis patrimonii aut amicorum liberalitate sustentant, hos perire patiemur? An, si qui frui publico non potuit per hostem, hic tegitur ipsa lege censoria; quem is frui non sinit, qui est, etiamsi non appellatur, hostis, huic ferri auxilium non oportet? Retinete igitur in provincia diutius eum, qui de sociis cum hostibus, de civibus cum sociis faciat pactiones, qui hoc etiam se pluris esse quam collegam putet, quod ille vos tristia voltuque deceperit, ipse numquam se minus quam erat, nequam esse simularit. Piso autem alio quodam modo gloriatur se brevi tempore perfecisse, ne Gabinius unus omnium nequissimus existimaretur.</p>
+        </div>
       </div>
-	 <div class="row">
-<div class="span3"></div>
-	 <div class="span5"><table class="table table-condensed"><tr><td><img src="img/cap1.png"/></td><td><img src="img/cap2.png"/></td><tr><td><img src="img/cap3.png"/></td><td></td></tr></table>
-     </div></div>
+      <div class="row">
+        <div class="span3"></div>
+        <div class="span5">
+          <table class="table table-condensed">
+            <tr>
+              <td><img src="img/cap1.png"/></td>
+              <td><img src="img/cap2.png"/>
+          </table>
+        </div>
+      </div>
+    <div class=" span8 main blue-border position_comment">
+      <div id="myCarousel" class="carousel slide">
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+        </ol>
+        <!-- Carousel items -->
+        <div class="carousel-inner">
+            <p> Nom : </p>
+    <p> Commentaire : </p>
+        </div>
+        <!-- Carousel nav --> 
+        <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a> <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a> </div>
     </div>
-	
+    </div>
+    </div>
   </div>
 </div>
-<script src="http://code.jquery.com/jquery.js"></script>
+<script src="http://code.jquery.com/jquery.js"></script> 
 <script src="bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
