@@ -4,6 +4,7 @@
 
 function ProjectListCtrl($scope, Project) {
     Project.query(null, function(projects){
+    console.log(projects);
     var viewprojects = [];
     for(var i = 0; i < projects.length; i++){
       if(i%4 == 0){

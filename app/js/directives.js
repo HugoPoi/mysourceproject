@@ -2,7 +2,7 @@
 
 /* Directives */
 
-angular.module('mySourceProjectDirectives', []).directive('mainNavigation', function factory(injectables) {
+angular.module('mySourceProjectDirectives', []).directive('mainNavigation', function() {
   var directiveDefinitionObject = {
     priority: 0,
     templateUrl: 'partials/main-navigation.html',
