@@ -7,7 +7,6 @@ body {
  header.row {
   margin: 1em;
 }
-
 header img{
   width: 40%;
   padding: 1em;
@@ -30,6 +29,30 @@ nav a {
 .container-nav{
   margin-left: -15px;
 }
+
+/* BARRE DE RECHERCHE */
+.position {
+	position:absolute;
+	top: 587px;
+	left: 4px;
+}
+
+/* FIN CSS BARRE DE RECHERCHE */
+
+.position2 {
+	position:absolute;
+	top: 10%;
+	left: 10%;
+}
+
+/* CSS COMMENTAIRE */
+.position_comment {
+	text-align:left;
+	width:91%;
+}
+
+/* FIN CSS COMMENTAIRE */
+
 
 .blue-border {
   border: 2px #0088CC solid;
