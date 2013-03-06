@@ -6,14 +6,9 @@
   </ol>
   <!-- Carousel items -->
   <div class="carousel-inner">
-    <div class="active item">
+    <div class="item" ng-class="{active : $first}" ng-repeat="project4 in projects">
       <div class="row">
-        <section class="span4"><img src="img/piano.jpg" class="img-rounded"/><br/>Piano Virtuel sur Linux</section>
-        <section class="span4"><img src="img/miniature/min0001.jpg" class="img-rounded"/><br/>Grep C++</section>
-      </div>
-      <div class="row">
-        <section class="span4"><img src="img/miniature/min0002.jpg" class="img-rounded"/><br/>PHP CMS</section>
-        <section class="span4"><img src="img/miniature/min0003.jpg" class="img-rounded"/><br/>Piano Virtuel ESGI</section>
+        <section ng-repeat="project in project4" class="span4"><img ng-src="img/{{project.img}}" class="img-rounded"/><br/>{{project.name}}</section>
       </div>
     </div>
   </div>
