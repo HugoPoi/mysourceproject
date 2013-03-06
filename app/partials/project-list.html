@@ -1,19 +1,12 @@
 <div id="myCarousel" class="carousel slide">
   <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
+    <li data-target="#myCarousel" data-slide-to="0" ng-class="{active : $first}" ng-repeat="project4 in projects"></li>
   </ol>
   <!-- Carousel items -->
   <div class="carousel-inner">
-    <div class="active item">
+    <div class="item" ng-class="{active : $first}" ng-repeat="project4 in projects">
       <div class="row">
-        <section class="span4"><img src="img/piano.jpg" class="img-rounded"/><br/>Piano Virtuel sur Linux</section>
-        <section class="span4"><img src="img/miniature/min0001.jpg" class="img-rounded"/><br/>Grep C++</section>
-      </div>
-      <div class="row">
-        <section class="span4"><img src="img/miniature/min0002.jpg" class="img-rounded"/><br/>PHP CMS</section>
-        <section class="span4"><img src="img/miniature/min0003.jpg" class="img-rounded"/><br/>Piano Virtuel ESGI</section>
+        <section ng-repeat="project in project4" class="span4"><a href="#/project/{{project.id}}"><img ng-src="img/{{project.img}}" class="img-rounded"/><br/>{{project.name}}</a></section>
       </div>
     </div>
   </div>

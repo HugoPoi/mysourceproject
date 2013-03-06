@@ -35,7 +35,7 @@ PRIMARY KEY (ID_Achat) ) ENGINE=InnoDB;
 
 DROP TABLE IF EXISTS Categorie ;
 CREATE TABLE Categorie (ID_Categorie int AUTO_INCREMENT NOT NULL,
-Nom INT,
+Nom VARCHAR(30),
 PRIMARY KEY (ID_Categorie) ) ENGINE=InnoDB;
 
 DROP TABLE IF EXISTS Commentaire ;

@@ -1,0 +1,69 @@
+ <div class="offset1 span8 main blue-border" ng-controller="Controller">
+	<div class="row">
+	<div class="span8" ><h3><u>S'enregistrer</u></h3></div></div>
+	<div class="row">
+	<div class="span1"></div>
+	<div class="span4"> 
+         <form class="form-horizontal" ng-submit="senregistrer()">
+		 <div class="control-group">
+    <label class="control-label" for="inputName">Nom</label>
+    <div class="controls">
+    <input type="text" id="inputName" placeholder="Nom" ng-model="user.name" required>
+    </div>
+    </div>
+
+	<div class="control-group">
+    <label class="control-label" for="inputPrenom">Prénom</label>
+    <div class="controls">
+    <input type="text" id="inputPrenom" placeholder="Prénom" ng-model="user.prenom">
+    </div>
+    </div>
+	<div class="control-group">
+    <label class="control-label" for="inputpaypal">N° de compte Paypal :</label>
+    <div class="controls">
+    <input type="text" id="inputpaypal" placeholder="N° compte paypal" ng-model="numpaypal">
+    </div>
+    </div>
+	<div class="row">
+	<div class="control-group"><div class="span2"></div>
+	<label class="radio inline">
+<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" ng-model="homme" checked>
+Homme</label>
+<label class="radio inline">
+<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" ng-model="femme" ng-true-value="true" ng-false-value="false">
+Femme
+</label>
+</div>
+</div>
+    <div class="control-group">
+    <label class="control-label" for="inputEmail">Email</label>
+    <div class="controls">
+    <input type="text" id="inputEmail" placeholder="Email" ng-model="email">
+    </div>
+    </div>
+	<div class="control-group">
+    <label class="control-label" for="inputEmail">Confirmer l'e-mail :</label>
+    <div class="controls">
+    <input type="text" id="inputEmail" placeholder="Email" ng-model="email">
+    </div>
+    </div>
+    <div class="control-group">
+    <label class="control-label" for="inputPassword">Mot de passe : </label>
+    <div class="controls">
+    <input type="password" id="inputPassword" placeholder="Password" ng-model="password">
+    </div>
+    </div>
+	 <div class="control-group">
+    <label class="control-label" for="inputPassword">Confirmer mot de passe :</label>
+    <div class="controls">
+    <input type="password" id="inputPassword" placeholder="Password" ng-model="password">
+    </div>
+    </div>
+    <div class="control-group">
+    <div class="controls">
+    <button type="submit" class="btn">Envoyer</button><button type="submit" class="btn">Annuler</button>
+    </div>
+    </div>
+    </form>
+    </div>
+  </div>		</div>

@@ -1,84 +1,135 @@
-/* app css stylesheet */
 
 body {
-  padding-top: 20px;
+  text-align: center;
+  background-color: gainsboro;
 }
 
-.phones {
-  list-style: none;
-}
-
-.thumb {
-  float: left;
-  margin: -1em 1em 1.5em 0em;
-  padding-bottom: 1em;
-  height: 100px;
-  width: 100px;
-}
-
-.phones li {
-  clear: both;
-  height: 100px;
-  padding-top: 15px;
-}
-
-/** Detail View **/
-img.phone {
-  float: left;
-  border: 1px solid black;
-  margin-right: 3em;
-  margin-bottom: 2em;
-  background-color: white;
-  padding: 2em;
-  height: 400px;
-  width: 400px;
-}
-
-ul.phone-thumbs {
-  margin: 0;
-  list-style: none;
-}
-
-ul.phone-thumbs li {
-  border: 1px solid black;
-  display: inline-block;
+ header.row {
   margin: 1em;
-  background-color: white;
 }
-
-ul.phone-thumbs img {
-  height: 100px;
-  width: 100px;
+header img{
+  width: 40%;
   padding: 1em;
 }
 
-ul.phone-thumbs img:hover {
-  cursor: pointer;
+.main img{
+  width: 55%;
+  padding: 5%;
 }
 
-
-ul.specs {
-  clear: both;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+h1{
+  font-family: Danube;
+  padding-top: 1em;
+  color: #2A7FFF;
 }
 
-ul.specs > li{
-  display: inline-block;
-  width: 200px;
-  vertical-align: top;
+nav a {
+  border-radius: 5px;
+}
+.container-nav{
+  margin-left: -15px;
 }
 
-ul.specs > li > span{
+/* BARRE DE RECHERCHE */
+.position {
+	position:absolute;
+	top: 587px;
+	left: 4px;
+}
+
+/* FIN CSS BARRE DE RECHERCHE */
+
+.position2 {
+	position:absolute;
+	top: 10%;
+	left: 10%;
+}
+
+/* CSS COMMENTAIRE */
+.position_comment {
+	text-align:left;
+	width:91%;
+}
+
+/* FIN CSS COMMENTAIRE */
+
+
+.blue-border {
+  border: 2px #0088CC solid;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 136, 204, 1);
+  box-shadow: 0px 0px 5px 1px rgba(0, 136, 204, 1);
+}
+
+/* DEBUT CSS PAGE DE DEPOT DE PROJET */
+
+.marge {
+	margin-top: 30px;
+	margin-left:65px;
+	margin-bottom:30px;
+}
+
+.marge_send {
+margin-top: 30px;
+margin-left: -102px;
+margin-bottom: 34px;
+}
+
+.newMarge {
+	margin-top:24px;
+	margin-left: -7%;
+}
+
+/* FIN DE CSS DU DEPOT DE PROJET */
+
+/* DEBUT DE CSS DE LA PAGE D'ADMINISTRATION */
+
+.admin_title {
+	margin-left: 31%;
+}
+
+/* FIN DU CSS DE LA PAGE D'ADMINISTRATION */
+
+.login-box{
+margin: 1em;
+margin-left: 60px;
+margin-top: 38px;
+}
+
+.main section{
+
+}
+
+.main-title p {
+  font-family: Book Antiqua;
   font-weight: bold;
-  font-size: 1.2em;
+  font-style: italic;
+  text-align: right;
+  padding-right: 2em;
 }
 
-ul.specs dt {
-  font-weight: bold;
+.rating {
+unicode-bidi: bidi-override;
+direction: rtl;
+font-size: 30px;
 }
 
-h1 {
-  border-bottom: 1px solid gray;
+.rating span.star {
+font-family: FontAwesome;
+font-weight: normal;
+font-style: normal;
+display: inline-block;
 }
+
+.rating span.star:before {
+content: "\f006";
+padding-right: 5px;
+color: #999;
+}
+
+.rating span.star:hover:before, .rating span.star:hover ~ span.star:before {
+content: "\f005";
+color: #e3cf7a;
+}
+
+.main{padding:5px;}
