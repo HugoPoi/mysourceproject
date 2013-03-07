@@ -26,7 +26,9 @@ function ProjectDetailCtrl($scope, $routeParams, Project, $location) {
   Project.query({projectId: $routeParams.projectId}, function(project) {
     $scope.project = project[0];
   });
-
+	$scope.buy = function() {
+  $location.path('/buy/'+$routeParams.projectId);
+  }
   /*$scope.setImage = function(imageUrl) {
     $scope.mainImageUrl = imageUrl;
   }*/
@@ -58,5 +60,8 @@ function UserCtrl($scope,$location){
   $scope.register = function(){
       $location.path('/register'); 
   }
-  
+}
+
+function BuyCtrl($scope,$location) {
+
 }
