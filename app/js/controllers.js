@@ -42,13 +42,12 @@ function NavigationCtrl($scope,$routeParams,$location, $rootScope, Categorie){
   });
 }
 
-function RegisterCtrl($scope){
+function RegisterCtrl($scope, User){
   
   $scope.registerForm = function(user){
       if(user.mot_de_passe == user.confirm_mdp){
-        console.log("OK");
+        console.log(User.save(user));
       }
-      console.log(user);
     }
   
 }
