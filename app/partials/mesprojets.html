@@ -1,0 +1,32 @@
+<div id="myCarousel" class="carousel slide" ng-show="showDL">
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="{{$index}}" ng-class="{active : $first}" ng-repeat="nbproject in user.project"></li>
+  </ol>
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+    <div class="item" ng-class="{active : $first}" ng-repeat="nbproject in user.project">
+      <div class="row">
+        <section ng-repeat="nbproject in user.project" class="span4"><a href="#/project/{{user.project.id}}"><img ng-src="img/{{user.project.img}}" class="img-rounded"/><br/>{{user.project.name}}</a></section>
+      </div>
+    </div>
+  </div>
+<!-- Carousel nav -->
+<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
+<div id="myCarousel" class="carousel slide" ng-show="showBuy">
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="{{$index}}" ng-class="{active : $first}" ng-repeat="nbachats in user.project.achat"></li>
+  </ol>
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+    <div class="item" ng-class="{active : $first}" ng-repeat="nbachats in user.project.achat">
+      <div class="row">
+        <section ng-repeat="nbachats in user.achat" class="span4"><a href="#/project/{{user.project.achat.id}}"><img ng-src="img/{{user.project.achat.img}}" class="img-rounded"/><br/>{{user.project.achat.name}}</a></section>
+      </div>
+    </div>
+  </div>
+<!-- Carousel nav -->
+<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
