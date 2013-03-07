@@ -62,6 +62,6 @@ function UserCtrl($scope,$location){
   }
 }
 
-function BuyCtrl($scope,$location) {
+function BuyCtrl($scope) {
 
 }
