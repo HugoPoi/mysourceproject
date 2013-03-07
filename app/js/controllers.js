@@ -60,6 +60,9 @@ function RegisterCtrl($scope, User){
       if(user.mot_de_passe == user.confirm_mdp){
         console.log(User.save(user));
       }
+	  if(user)
+	  $scope.registerOK="Ok";
+	  else $scope.registerOK="";
     }
 }
 

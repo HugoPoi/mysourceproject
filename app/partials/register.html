@@ -1,7 +1,8 @@
-<div class="row">
+
+<div class="row" ng-hide="registerOK">
+	
 	<div class="span8" ><h3><u>S'enregistrer</u></h3></div>
-</div>
-<div class="row">
+
     <div class="offset1 span4"> 
 		<form class="form-horizontal" ng-submit="registerForm(user)">
 		
@@ -67,4 +68,7 @@
 			</div>
 		</form>
 	</div>
+</div>
+<div class="row" ng-show="registerOK">
+	<div class="span8" ><h3><u>Merci, vous avez bien été enregistré.</u></h3></div>
 </div>
