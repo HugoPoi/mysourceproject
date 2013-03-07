@@ -35,6 +35,10 @@ function ProjectDetailCtrl($scope, $routeParams, Project, $location) {
 			$location.path('/buy/'+$routeParams.projectId);
 		}
 	}
+	$scope.postercom = function(com) {
+	$scope.project.commentaire=com;
+		console.log(com);
+	};
 	
 	/*$scope.setImage = function(imageUrl) {
 		$scope.mainImageUrl = imageUrl;
