@@ -35,7 +35,11 @@ function ProjectDetailCtrl($scope, $routeParams, Project, $location) {
 			$location.path('/buy/'+$routeParams.projectId);
 		}
 	}
-	
+	$scope.postercom = function(com) {
+		$scope.project.commentaire=com;
+		console.log(com);
+	};
+	$scope.resetcom = function(com){ $scope.com="";}
 	/*$scope.setImage = function(imageUrl) {
 		$scope.mainImageUrl = imageUrl;
 	}*/
@@ -96,3 +100,10 @@ function BuyCtrl($scope, $routeParams, Project, $location) {
 		$location.path('/home');
 	}
 }
+
+function ProjectUploadCtrl($scope, Project) {
+	$scope.uploadProjectForm = function(Project){ 
+		console.log(Project);	
+	}	
+}
+
