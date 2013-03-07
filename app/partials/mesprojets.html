@@ -1,0 +1,20 @@
+<div class="span8 main"> 
+	<div class="span7">
+		<!--affichage projets mis en ligne-->
+		<table class="table table-hover"><caption><h4>Liste projets mis en ligne</h4></caption>
+			<thead><tr><th>Nom projet</th><th>Description</th></tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="project in projectDL"> <td>{{project.name}}</td> <td>{{project.description}}</td> </tr>
+			</tbody>
+		</table>
+		<!--affichage projets achetés-->
+		<table class="table table-hover"><caption><h4>Liste des projets achetés</h4></caption>
+			<thead><tr><th>Nom projet</th><th>Description</th><th>Lien de  téléchargement</th></tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="project in projectBuy"> <td>{{project.name}}</td> <td>{{project.description}}</td> <td><button ng-click="download(project)" class="btn btn-mini">Download</button></td> </tr>
+			</tbody>
+		</table>
+	</div>
+</div>

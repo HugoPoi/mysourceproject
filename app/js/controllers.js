@@ -53,23 +53,43 @@ function NavigationCtrl($scope,$routeParams,$location, $rootScope, Categorie){
 	});
 }
 
-function RegisterCtrl($scope){
-	
-	$scope.registerForm = function(user){
-		if(user.mot_de_passe == user.confirm_mdp){
-			console.log("OK");
-		}
-		console.log(user);
-	}
-	
+
+function RegisterCtrl($scope, User){
+  
+  $scope.registerForm = function(user){
+      if(user.mot_de_passe == user.confirm_mdp){
+        console.log(User.save(user));
+      }
+	  if(user)
+	  $scope.registerOK="Ok";
+	  else $scope.registerOK="";
+    }
 }
 
-function UserCtrl($scope,$location){
-	
-	$scope.log=function() { console.log("LOGGIN");
+function UserCtrl($scope,$location, Login){
+  Login.login({},function(profile){
+    console.log(profile);
+    if(profile.error === undefined){
+        $scope.profile = profile;
+      }
+    })
+	$scope.login = function(user) {
+    Login.login(user,function(profile){
+      if(profile.error === undefined){
+      $scope.profile = profile;
+      }
+      });
 	}
+  $scope.logout = function(){
+      Login.login({'deconnection': true}, function(){
+          $scope.profile = false;
+        });
+    }
 	$scope.register = function(){
 		$location.path('/register'); 
+	}
+	$scope.myprojects = function() {
+	$location.path('/myprojects');
 	}
 }
 
@@ -93,3 +113,13 @@ function ProjectUploadCtrl($scope, Project) {
 	}	
 }
 
+function ShowMyProjectsCtrl($scope,$routeParams,Project,$location) {
+	
+	$scope.projectBuy = Project.query(); //à compléter
+	$scope.projectDL= Project.query(); //à compléter
+	/*lien de telechargement de chaque projet acheté par l'utilisateur*/
+	$scope.download = function(project) {
+		
+	}
+	
+}

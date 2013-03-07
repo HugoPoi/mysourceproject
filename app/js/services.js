@@ -11,4 +11,12 @@ angular.module('mySourceProjectServices', ['ngResource']).
   return $resource('projects/categorie.json', {}, {
     query: {method:'GET', params:{} , isArray:true}
   });
+}).factory('User', function($resource){
+  return $resource('/api/Utilisateur.php', {}, {
+    save: {method:'PUT', params:{} , isArray:false}
+  });
+}).factory('Login', function($resource){
+  return $resource('/api/login.php', {}, {
+    login: {method:'PUT', params:{} , isArray:false}
+  });
 });
