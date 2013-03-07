@@ -43,7 +43,7 @@ function NavigationCtrl($scope,$routeParams,$location, $rootScope, Categorie){
 function RegisterCtrl($scope){
   
   $scope.registerForm = function(user){
-      if(user.password == user.confirmPassword){
+      if(user.mot_de_passe == user.confirm_mdp){
         console.log("OK");
       }
       console.log(user);
@@ -53,6 +53,8 @@ function RegisterCtrl($scope){
 
 function UserCtrl($scope,$location){
   
+  $scope.log=function() { console.log("LOGGIN");
+  }
   $scope.register = function(){
       $location.path('/register'); 
   }
