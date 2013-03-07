@@ -3,5 +3,7 @@
     "name": "Piano Virtuel",
     "description": "restrict - String of subset of EACM which restricts the directive",
     "category": "javascript,html",
-    "img": "piano.jpg"
+    "img": "piano.jpg",
+	"price":"0.50",
+	"achat": true
    }]
