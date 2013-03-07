@@ -21,7 +21,9 @@ angular.module('mySourceProjectDirectives', []).directive('mainNavigation', func
     transclude: false,
     restrict: 'A',
     scope: false,
-    //controller: 'UserCtrl'
+    controller: 'UserCtrl'
   };
   return directiveDefinitionObject;
+  
+ 
 });

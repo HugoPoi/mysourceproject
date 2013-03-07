@@ -26,7 +26,9 @@ function ProjectDetailCtrl($scope, $routeParams, Project, $location) {
   Project.query({projectId: $routeParams.projectId}, function(project) {
     $scope.project = project[0];
   });
-
+	$scope.buy = function() {
+  $location.path('/buy/'+$routeParams.projectId);
+  }
   /*$scope.setImage = function(imageUrl) {
     $scope.mainImageUrl = imageUrl;
   }*/
@@ -38,4 +40,28 @@ function NavigationCtrl($scope,$routeParams,$location, $rootScope, Categorie){
   $rootScope.$on('$routeChangeSuccess', function(){
     $scope.ishome = ($location.path() =='/home');
   });
+}
+
+function RegisterCtrl($scope){
+  
+  $scope.registerForm = function(user){
+      if(user.mot_de_passe == user.confirm_mdp){
+        console.log("OK");
+      }
+      console.log(user);
+    }
+  
+}
+
+function UserCtrl($scope,$location){
+  
+  $scope.log=function() { console.log("LOGGIN");
+  }
+  $scope.register = function(){
+      $location.path('/register'); 
+  }
+}
+
+function BuyCtrl($scope) {
+
 }
