@@ -112,8 +112,9 @@ function ProjectUploadCtrl($scope, Project) {
 
 function ShowMyProjectsCtrl($scope,$routeParams,Project,$location) {
 	
-	$scope.projectBuy = Project.query();
-	$scope.projectDL= Project.query();
+	$scope.projectBuy = Project.query(); //à compléter
+	$scope.projectDL= Project.query(); //à compléter
+	/*lien de telechargement de chaque projet acheté par l'utilisateur*/
 	$scope.download = function(project) {
 		
 	}
