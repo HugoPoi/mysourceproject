@@ -23,12 +23,12 @@ function ProjectListCtrl($scope, Project) {
 }
 
 function ProjectDetailCtrl($scope, $routeParams, Project, $location) {
-	Project.query({projectId: $routeParams.projectId}, function(project) {
+	Project.query({action:'select',ID_Projet: $routeParams.projectId}, function(project) {
 		$scope.project = project[0];
-		if(project[0].achat) {$scope.button = 'Download'} else { $scope.button = 'Acheter' }
+		if(project[0].buy != 0) {$scope.button = 'Download'} else { $scope.button = 'Acheter' }
 	});
 	$scope.buy = function() {
-		if($scope.project.achat){
+		if($scope.project.buy){
 			$location.path('/download/'+$routeParams.projectId);
 		}
 		else {
@@ -66,7 +66,6 @@ function RegisterCtrl($scope, User){
 
 function UserCtrl($scope,$location, Login,$rootScope){
   Login.login({},function(profile){
-    console.log(profile);
     if(profile.error === undefined){
         $scope.profile = profile;
         $rootScope.profile = profile;
@@ -113,7 +112,11 @@ function ProjectUploadCtrl($scope, Project, Categorie) {
     project.Path_Projet ='dfghjkl';
     project.Prix_projet ='1';
     project.Path_Code_Demo = 'dfghjkl';
-    console.log(Project.save(project));
+    Project.save(project, function(error){
+      if(error.success !== undefined){
+        console.log('success');
+     }
+   });
 	}
 	$scope.categories = Categorie.query();
 }

@@ -4,7 +4,7 @@
 
 angular.module('mySourceProjectServices', ['ngResource']).
     factory('Project', function($resource){
-  return $resource('api/Projet.:action.php', {}, {
+  return $resource('api/project.:action.php', {}, {
     query: {method:'GET', params:{action:'all'}, isArray:true},
     save: {method:'PUT', params:{action:'save'}, isArray:false}
   });
