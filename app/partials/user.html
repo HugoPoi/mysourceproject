@@ -1,13 +1,20 @@
-<div class="span3 login-box">
-  <form >
+<div class="span3 login-box" >
+  <form ng-hide="profile">
     <fieldset>
       <div class="input-prepend">
       <span class="add-on"><i class="icon-user"></i></span>
-        <input class="input-medium" type="text" placeholder="Login" ng-model="user.login">
+        <input class="input-medium" type="text" placeholder="Login" ng-model="user.Mail_Utilisateur">
       </div>
-      <input type="password" style="width: 177px;" placeholder="Password" ng-model="user.password">
-      <button type="submit" ng-click="log()" class="btn btn-mini btn-primary">Se connecter</button>
+      <input type="password" style="width: 177px;" placeholder="Password" ng-model="user.mot_de_passe">
+      <button type="submit" ng-click="login(user)" class="btn btn-mini btn-primary">Se connecter</button>
       <button type="submit" ng-click="register()" class="btn btn-mini">S'enregistrer</button>
+    </fieldset>
+  </form>
+  <form ng-show="profile">
+    <fieldset>
+    <legend>Mon Compte</legend>
+    <p>Bonjour {{profile.Prenom_Utilisateur}} {{profile.Nom_Utilisateur}}</p>
+    <button type="submit" ng-click="logout()" class="btn btn-mini">Déconnexion</button>
     </fieldset>
   </form>
 </div>

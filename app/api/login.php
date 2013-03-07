@@ -1,41 +1,51 @@
 <?php
-
-require_once("connectdb.php");
-echo "in login" ;
-
-$arras = array( Mail_Utilisateur => "seyuf@hotmail.com", mot_de_passe => "amke" ) ; 
-
-$jsonVar = json_encode( $arras ) ;
-$DATA    = json_decode( $jsonVar ) ;
-
-//log the user
-//$DATA     = json_decode( file_get_contents("//input") ) ;
-
-if( isset($userlogin ) ){
-    echo ' your Already logged in ' ;
-}
-else{
-
-    $userlogin   = $DATA -> { Mail_Utilisateur } ;
-    $logMdp      = $DATA -> { mot_de_passe     } ;
-
-    $sqlCheckLog = "SELECT * FROM Utilisateur WHERE Mail_Utilisateur = '$userlogin' AND mot_de_passe = '$logMdp' " ; 
-    $result = mysqli_query ( $db_conx,$sqlCheckLog ) ;
-
+  header('Content-type: application/json');
+  
+  session_start();
+  
+  require_once("connectdb.php");
+  
+  $DATA = json_decode( file_get_contents("php://input") ) ;
+  
+  if( isset($_SESSION['userlogin']) ){
+  
+    //DECONNEXION
+    if(isset($DATA -> { 'deconnection' })){
+      session_destroy();
+      die();
+    }
     
-
-
+    $sqlCheckLog = "SELECT * FROM Utilisateur WHERE ID_Utilisateur = '".$_SESSION['userid']."' " ; 
+    $result = mysqli_query ( $db_conx,$sqlCheckLog ) ;
+    
     if( $result ){
-
-    $row   = mysqli_fetch_array($result, MYSQLI_ASSOC);
-
-        include 'session.php';
-        echo ' utilisateurIS' .$SESSION['Id'];
-
+      
+      $row   = mysqli_fetch_array($result, MYSQLI_ASSOC);
+      $outjson = $row;
+      
     }
     else{
-        echo ' does not exit redirecting to sign In' ;
+      $outjson = array('error'=>'MySQL Error !!!');
     }
-
-}
-?>
+  }
+  else{
+    
+    $userlogin   = isset($DATA -> { 'Mail_Utilisateur' }) ? $DATA -> { 'Mail_Utilisateur' } : null ;
+    $logMdp      = isset($DATA -> { 'mot_de_passe'     }) ? $DATA -> { 'mot_de_passe'     } : null ;
+    
+    $sqlCheckLog = "SELECT * FROM Utilisateur WHERE Mail_Utilisateur = '$userlogin' AND mot_de_passe = '$logMdp' " ; 
+    $result = mysqli_query ( $db_conx,$sqlCheckLog ) ;
+    $row   = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    if( isset($row['Mail_Utilisateur']) ){
+      $_SESSION['userlogin'] = $row['Mail_Utilisateur'];
+      $_SESSION['userid'] = $row['ID_Utilisateur'];
+      $outjson = $row;
+    }
+    else{
+      $outjson = array('error'=>'compte inconnu');
+    }
+    
+  }
+  
+  echo json_encode($outjson);
+  

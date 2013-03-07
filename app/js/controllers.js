@@ -59,10 +59,25 @@ function RegisterCtrl($scope, User){
     }
 }
 
-function UserCtrl($scope,$location){
-	
-	$scope.log=function() { console.log("LOGGIN");
+function UserCtrl($scope,$location, Login){
+  Login.login({},function(profile){
+    console.log(profile);
+    if(profile.error === undefined){
+        $scope.profile = profile;
+      }
+    })
+	$scope.login = function(user) {
+    Login.login(user,function(profile){
+      if(profile.error === undefined){
+      $scope.profile = profile;
+      }
+      });
 	}
+  $scope.logout = function(){
+      Login.login({'deconnection': true}, function(){
+          $scope.profile = false;
+        });
+    }
 	$scope.register = function(){
 		$location.path('/register'); 
 	}
