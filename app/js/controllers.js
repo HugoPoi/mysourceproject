@@ -85,6 +85,9 @@ function UserCtrl($scope,$location, Login){
 	$scope.register = function(){
 		$location.path('/register'); 
 	}
+	$scope.myprojects = function() {
+	$location.path('/myprojects');
+	}
 }
 
 function BuyCtrl($scope, $routeParams, Project, $location) {
@@ -107,3 +110,7 @@ function ProjectUploadCtrl($scope, Project) {
 	}	
 }
 
+function ShowMyProjectsCtrl($scope,$routeParams,Project,$location) {
+	showBuy="";
+	showDL="";
+}
