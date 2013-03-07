@@ -111,6 +111,8 @@ function ProjectUploadCtrl($scope, Project) {
 }
 
 function ShowMyProjectsCtrl($scope,$routeParams,Project,$location) {
-	showBuy="";
-	showDL="";
+	
+	$scope.projectBuy = Project.query();
+	$scope.projectDL= Project.query();
+	
 }
