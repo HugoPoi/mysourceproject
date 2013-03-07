@@ -3,9 +3,9 @@
 //connect to the db if not yet
 require_once("connectdb.php");
 
-echo "in the fonctionnel file user";
+if($_SERVER['REQUEST_METHOD'] == 'PUT'){
 // convert json to php
-$DATA  = json_decode( file_get_contents("//input") );
+$DATA  = json_decode( file_get_contents("php://input") );
 
 //get the value 
 $type   = $DATA -> { Type_Utilisateur   } ;
@@ -14,7 +14,11 @@ $prenom = $DATA -> { Prenom_Utilisateur } ;
 $sexe   = $DATA -> { Sexe_Utilisateur   } ;
 $mail   = $DATA -> { Mail_Utilisateur   } ;
 $payPal = $DATA -> { Numero_PayPal      } ;
+if (isset( $DATA -> { Note_Utilisateur   } )){
 $note   = $DATA -> { Note_Utilisateur   } ;
+}else{
+$note = 0 ;
+}
 $mdp    = $DATA -> { mot_de_passe       } ;
 
 //insert 
@@ -29,5 +33,4 @@ else{
 
     echo " failed to insert the user : " .mysqli_error() ;
 }
-
-?>
+}
