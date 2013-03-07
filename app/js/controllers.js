@@ -114,5 +114,8 @@ function ShowMyProjectsCtrl($scope,$routeParams,Project,$location) {
 	
 	$scope.projectBuy = Project.query();
 	$scope.projectDL= Project.query();
+	$scope.download = function(project) {
+		
+	}
 	
 }
