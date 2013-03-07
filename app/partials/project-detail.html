@@ -2,7 +2,7 @@
 	<div class="span2"><img ng-src="img/{{project.img}}"/>
 		<p> {{project.note}}</p>
 		<span class="rating"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></span>
-		<p> {{project.price }}</p>
+		<p> {{project.price}}</p>
 		<button ng-click="buy()" class="btn">{{button}}</button>
 	</div>
 	<div class="span6">
@@ -20,7 +20,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="offset1 span6 blue-border">
+			<div class="offset1 span6 blue-border" ng-show="project.commentaire">
 				<h4>Avis utilisateurs</h4>
 				<div id="myCarousel" class="carousel slide">
 					<ol class="carousel-indicators">
@@ -39,5 +39,14 @@
 					<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
 					<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 				</div>
+			</div>
+			<div class="offset1 span6 blue-border" ng-hide="project.commentaire">
+				<h4>Ecrivez votre commentaire:</h4>
+				<textarea rows="3" ng-model="com"></textarea>
+					<div class="control-group">
+				<div class="controls">
+					<button type="submit" ng-click="postercom(com)" class="btn">Envoyer</button><button type="submit" ng-click="resetcom()" class="btn">Effacer</button>
+				</div>
+			</div>
 			</div>
 		</div>		

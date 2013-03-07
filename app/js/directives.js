@@ -24,7 +24,4 @@ angular.module('mySourceProjectDirectives', []).directive('mainNavigation', func
     controller: 'UserCtrl'
   };
   return directiveDefinitionObject;
-  
-  
- 
 });
