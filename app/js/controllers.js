@@ -58,6 +58,9 @@ function RegisterCtrl($scope, User){
       if(user.mot_de_passe == user.confirm_mdp){
         console.log(User.save(user));
       }
+	  if(user)
+	  $scope.registerOK="Ok";
+	  else $scope.registerOK="";
     }
 }
 
@@ -116,6 +119,12 @@ function ProjectUploadCtrl($scope, Project, Categorie) {
 }
 
 function ShowMyProjectsCtrl($scope,$routeParams,Project,$location) {
-	showBuy="";
-	showDL="";
+	
+	$scope.projectBuy = Project.query(); //à compléter
+	$scope.projectDL= Project.query(); //à compléter
+	/*lien de telechargement de chaque projet acheté par l'utilisateur*/
+	$scope.download = function(project) {
+		
+	}
+	
 }
