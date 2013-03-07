@@ -42,5 +42,19 @@ function NavigationCtrl($scope,$routeParams,$location, $rootScope, Categorie){
 
 function RegisterCtrl($scope){
   
+  $scope.registerForm = function(user){
+      if(user.password == user.confirmPassword){
+        console.log("OK");
+      }
+      console.log(user);
+    }
+  
+}
+
+function UserCtrl($scope,$location){
+  
+  $scope.register = function(){
+      $location.path('/register'); 
+  }
   
 }
