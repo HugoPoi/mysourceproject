@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="span2"><img ng-src="img/{{project.img}}"/>
+	<div class="span2"><img ng-src="img/project/{{project.ID_Projet}}.jpg"/>
 		<p> {{project.note}}</p>
 		<span class="rating"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></span>
 		<p> {{project.Prix_projet}} €</p>
@@ -20,7 +20,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="offset1 span6 blue-border" ng-show="project.commentaire">
+			<div class="offset1 span6 blue-border" ng-show="project.commentaires">
 				<h4>Avis utilisateurs</h4>
 				<div id="myCarousel" class="carousel slide" >
 					<ol class="carousel-indicators">
@@ -30,8 +30,8 @@
 					<div class="item" ng-class="{active : $first}" ng-repeat="commentaire in project.commentaires">
 						<div class="row">
 							<div class="span5">
-								<section class="span4" >{{commentaire.username}}</section>
-								<section class="span4" >{{commentaire.content}}</section>
+								<section class="span4" >{{commentaire.Nom_Utilisateur}}</section>
+								<section class="span4" >{{commentaire.Commentaire}}</section>
 							</div>
 						</div>
 					</div> 
