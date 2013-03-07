@@ -1,6 +1,7 @@
 <nav class="span3 blue-border">
   <ul class="nav nav-list">
-    <li ng-class="{active : ishome}"><a href="#">Home</a></li>
+    <li ng-class="{active : ishome}"><a href="#/home">Home</a></li>
+    <li ng-show="profile"><a href="#/upload">Déposer un projet</a></li>
     <li class="nav-header">Categories</li>
     <li ng-repeat="categorie in categories"><a href="#">{{categorie.name}}</a></li>
   </ul>

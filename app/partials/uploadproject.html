@@ -11,17 +11,14 @@
 			<div class="control-group">
 				<label class="control-label" for="inputDescription">Description :</label>
 				<div class="controls">
-					<input type="text" id="inputDescription" placeholder="Décrivez votre projet" ng-model="Project.Description_Projet" required>
+          <textarea id="inputDescription" placeholder="DÃ©crivez votre projet" ng-model="Project.Description_Projet" required rows="3"></textarea>
 				</div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" >Catégorie</label>
+				<label class="control-label" >CatÃ©gorie</label>
 				<div class="controls">
 					<select ng-model="Project.Category">
-						<option value="C++" >C++</option>
-						<option value="PHP">PHP</option>
-						<option value="IOS">IOS</option>
-						<option value="Javascript">Javascript</option>
+						<option ng-repeat="categorie in categories" value="{{categorie.id}}" >{{categorie.name}}</option>
 					</select>
 				</div>
 			</div>

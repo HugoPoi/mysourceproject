@@ -40,9 +40,7 @@ function ProjectDetailCtrl($scope, $routeParams, Project, $location) {
 		console.log(com);
 	};
 	$scope.resetcom = function(com){ $scope.com="";}
-	/*$scope.setImage = function(imageUrl) {
-		$scope.mainImageUrl = imageUrl;
-	}*/
+  
 }
 
 function NavigationCtrl($scope,$routeParams,$location, $rootScope, Categorie){
@@ -63,23 +61,26 @@ function RegisterCtrl($scope, User){
     }
 }
 
-function UserCtrl($scope,$location, Login){
+function UserCtrl($scope,$location, Login,$rootScope){
   Login.login({},function(profile){
     console.log(profile);
     if(profile.error === undefined){
         $scope.profile = profile;
+        $rootScope.profile = profile;
       }
     })
 	$scope.login = function(user) {
     Login.login(user,function(profile){
       if(profile.error === undefined){
       $scope.profile = profile;
+      $rootScope.profile = profile;
       }
       });
 	}
   $scope.logout = function(){
       Login.login({'deconnection': true}, function(){
           $scope.profile = false;
+          $rootScope.profile = false;
         });
     }
 	$scope.register = function(){
@@ -101,9 +102,10 @@ function BuyCtrl($scope, $routeParams, Project, $location) {
 	}
 }
 
-function ProjectUploadCtrl($scope, Project) {
+function ProjectUploadCtrl($scope, Project, Categorie) {
 	$scope.uploadProjectForm = function(Project){ 
 		console.log(Project);	
-	}	
+	}
+	$scope.categories = Categorie.query();
 }
 
