@@ -1,16 +1,16 @@
 <div id="myCarousel" class="carousel slide">
-	<ol class="carousel-indicators">
-		<li data-target="#myCarousel" data-slide-to="0" ng-class="{active : $first}" ng-repeat="project4 in projects"></li>
-	</ol>
-	<!-- Carousel items -->
-	<div class="carousel-inner">
-		<div class="item" ng-class="{active : $first}" ng-repeat="project4 in projects">
-			<div class="row">
-				<section ng-repeat="project in project4" class="span4"><a href="#/project/{{project.id}}"><img ng-src="img/{{project.img}}" class="img-rounded"/><br/>{{project.name}}</a></section>
-			</div>
-		</div>
-	</div>
-	<!-- Carousel nav -->
-	<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-	<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="{{$index}}" ng-class="{active : $first}" ng-repeat="project4 in projects"></li>
+  </ol>
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+    <div class="item" ng-class="{active : $first}" ng-repeat="project4 in projects">
+      <div class="row">
+        <section ng-repeat="project in project4" class="span4"><a href="#/project/{{project.id}}"><img ng-src="img/{{project.img}}" class="img-rounded"/><br/>{{project.name}}</a></section>
+      </div>
+    </div>
+  </div>
+<!-- Carousel nav -->
+<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 </div>

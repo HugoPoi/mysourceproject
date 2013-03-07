@@ -39,3 +39,8 @@ function NavigationCtrl($scope,$routeParams,$location, $rootScope, Categorie){
     $scope.ishome = ($location.path() =='/home');
   });
 }
+
+function RegisterCtrl($scope){
+  
+  
+}
