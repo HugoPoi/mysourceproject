@@ -12,15 +12,15 @@ echo "session in achat" .$_SESSION["Id"] ;
 
 
 //get the value 
-$date    = $DATA -> { Date_Achat  } ;
-$note    = $DATA -> { Note_Achat  } ;
-$comment = $DATA -> { Commentaire } ;
+$date     = $DATA -> { Date_Achat  } ;
+$note     = $DATA -> { Note_Achat  } ;
+$comment  = $DATA -> { Commentaire } ;
+$iduser   = $SESSION["Id"] ;
+$idProjet = $DATA -> { ID_Projet   } ;
 
-
-echo "\n".'Nom on purchase';
 
 //insert 
-$sql   =  " INSERT INTO Achat ( Date_Achat, Note_Achat, Commentaire ) VALUES ( '$date', $note, '$comment' )" ;
+$sql   =  " INSERT INTO Achat ( Date_Achat, Note_Achat, Commentaire, ID_ ) VALUES ( '$date', $note, '$comment', '$iduser', '$idProjet' )" ;
 
 // check the insert
 if(mysqli_query( $db_conx,$sql )){
