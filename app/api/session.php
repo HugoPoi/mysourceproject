@@ -1,15 +1,14 @@
 <?php
 
 session_start() ;
-if(!isset( $SESSION['userlogin']) ){
-    $SESSION['userlogin'] = $userlogin ;
-    $SESSION['Id']        = $row['ID_Utilisateur'] ; 
+if(isset( $SESSION['userlogin']) ){
+    $userlogin = $SESSION['userlogin'];
+    $userid = $SESSION['Id']; 
 }
 else{
-
-    $SESSION['userlogin'] = $userlogin ;
-    $SESSION['Id']        = $row['ID_Utilisateur'] ; 
-
+  
+  //EXPIRED SESSION
+  
 }
 
 ?>
