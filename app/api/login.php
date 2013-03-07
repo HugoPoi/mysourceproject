@@ -1,5 +1,4 @@
 <?php
-  header('Content-type: application/json');
   
   session_start();
   
@@ -15,7 +14,7 @@
       die();
     }
     
-    $sqlCheckLog = "SELECT * FROM Utilisateur WHERE ID_Utilisateur = '".$_SESSION['userid']."' " ; 
+    $sqlCheckLog = "SELECT * FROM Utilisateur WHERE ID_Utilisateur = '".$_SESSION['Id']."' " ; 
     $result = mysqli_query ( $db_conx,$sqlCheckLog ) ;
     
     if( $result ){
@@ -38,7 +37,7 @@
     $row   = mysqli_fetch_array($result, MYSQLI_ASSOC);
     if( isset($row['Mail_Utilisateur']) ){
       $_SESSION['userlogin'] = $row['Mail_Utilisateur'];
-      $_SESSION['userid'] = $row['ID_Utilisateur'];
+      $_SESSION['Id'] = $row['ID_Utilisateur'];
       $outjson = $row;
     }
     else{

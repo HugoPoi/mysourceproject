@@ -4,20 +4,20 @@
 			<div class="control-group">
 				<label class="control-label" for="inputName">Nom du projet : </label>
 				<div class="controls">
-					<input type="text" id="inputName" placeholder="Nom" ng-model="Project.Titre_Projet" required>
+					<input type="text" id="inputName" placeholder="Nom" ng-model="project.Titre_Projet" required>
 				</div>
 			</div>
 			
 			<div class="control-group">
 				<label class="control-label" for="inputDescription">Description :</label>
 				<div class="controls">
-          <textarea id="inputDescription" placeholder="Décrivez votre projet" ng-model="Project.Description_Projet" required rows="3"></textarea>
+          <textarea id="inputDescription" placeholder="Décrivez votre projet" ng-model="project.Description_Projet" required rows="3"></textarea>
 				</div>
 			</div>
 			<div class="control-group">
 				<label class="control-label" >Catégorie</label>
 				<div class="controls">
-					<select ng-model="Project.Category">
+					<select ng-model="project.ID_Categorie">
 						<option ng-repeat="categorie in categories" value="{{categorie.id}}" >{{categorie.name}}</option>
 					</select>
 				</div>
@@ -28,24 +28,24 @@
 			<section>
 				<div class="span3 blue-border marge">
 					<label>Joindre l'avatar du projet : </label>
-					<input type="file" id="avatar" ng-model="Project.avatar" />
+					<input type="file" id="avatar" ng-model="project.avatar" />
 				</div>
 			</section>
 			<section>
 				<div class="span3 blue-border marge">
 				<label>Joindre des screens de votre projet : </label>
-					<input type="file" id="screens" ng-model="Project.screens" />
+					<input type="file" id="screens" ng-model="project.screens" />
 				</div>
 			</section></div>
 			<div class="row">
 				<section>
 					<div class="span3 blue-border marge">
 					<label>Joindre les codes sources du projet : </label>
-						<input type="file" id="sources" ng-model="Project.sources" />
+						<input type="file" id="sources" ng-model="project.sources" />
 					</div>
 					
 				</section> 
 				
-				<div class="span3 marge"> <button class="btn btn-large" type="submit" ng-click="uploadProjectForm(Project)">
+				<div class="span3 marge"> <button class="btn btn-large" type="submit" ng-click="uploadProjectForm(project)">
 				Soumettre projet</button></div></div> 
 			</form>	

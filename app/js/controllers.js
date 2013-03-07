@@ -106,8 +106,11 @@ function BuyCtrl($scope, $routeParams, Project, $location) {
 }
 
 function ProjectUploadCtrl($scope, Project, Categorie) {
-	$scope.uploadProjectForm = function(Project){ 
-		console.log(Project);	
+	$scope.uploadProjectForm = function(project){
+    project.Path_Projet ='dfghjkl';
+    project.Prix_projet ='1';
+    project.Path_Code_Demo = 'dfghjkl';
+    console.log(Project.save(project));
 	}
 	$scope.categories = Categorie.query();
 }

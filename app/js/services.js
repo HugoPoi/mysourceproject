@@ -4,8 +4,9 @@
 
 angular.module('mySourceProjectServices', ['ngResource']).
     factory('Project', function($resource){
-  return $resource('projects/:projectId.json', {}, {
-    query: {method:'GET', params:{projectId:'all'}, isArray:true}
+  return $resource('api/Projet.:action.php', {}, {
+    query: {method:'GET', params:{action:'all'}, isArray:true},
+    save: {method:'PUT', params:{action:'save'}, isArray:false}
   });
 }).factory('Categorie', function($resource){
   return $resource('projects/categorie.json', {}, {
