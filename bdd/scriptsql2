@@ -1,26 +1,26 @@
-# script créé le : Wed Mar 06 08:36:34 CET 2013 -   syntaxe MySQL ;
+# script créé le : Wed Mar 06 14:29:40 CET 2013 -   syntaxe MySQL ;
 
 # use  VOTRE_BASE_DE_DONNEE ;
 
 DROP TABLE IF EXISTS Utilisateur ;
 CREATE TABLE Utilisateur (ID_Utilisateur int AUTO_INCREMENT NOT NULL,
-Type_Utilisateur VARCHAR( 11 ),
-Nom_Utilisateur VARCHAR( 30 ),
-Prenom_Utilisateur VARCHAR( 30 ),
-Sexe_Utilisateur VARCHAR( 5 ),
-Mail_Utilisateur VARCHAR( 30 ),
+Type_Utilisateur VARCHAR(12),
+Nom_Utilisateur VARCHAR(30),
+Prenom_Utilisateur VARCHAR(30),
+Sexe_Utilisateur VARCHAR(6),
+Mail_Utilisateur VARCHAR(50) UNIQUE ,
 Numero_PayPal INT,
 Note_Utilisateur INT,
-mot_de_passe VARCHAR( 30 ),
+mot_de_passe VARCHAR(15),
 PRIMARY KEY (ID_Utilisateur) ) ENGINE=InnoDB;
 
 DROP TABLE IF EXISTS Projet ;
 CREATE TABLE Projet (ID_Projet int AUTO_INCREMENT NOT NULL,
-Titre_Projet VARCHAR( 30 ),
-Path_Projet VARCHAR( 50 ),
+Titre_Projet VARCHAR(100),
+Path_Projet VARCHAR(100),
 Prix_projet DOUBLE,
-Path_Code_Demo VARCHAR( 50 ),
-Description_Projet VARCHAR( 300 ),
+Path_Code_Demo VARCHAR(100),
+Description_Projet VARCHAR(300),
 ID_Utilisateur INT,
 ID_Categorie INT,
 ID_Achat INT,
@@ -29,21 +29,16 @@ PRIMARY KEY (ID_Projet) ) ENGINE=InnoDB;
 DROP TABLE IF EXISTS Achat ;
 CREATE TABLE Achat (ID_Achat int AUTO_INCREMENT NOT NULL,
 Date_Achat DATE,
+Note_Achat INT,
+Commentaire VARCHAR(300),
 ID_Utilisateur INT,
 ID_Projet INT,
 PRIMARY KEY (ID_Achat) ) ENGINE=InnoDB;
 
 DROP TABLE IF EXISTS Categorie ;
 CREATE TABLE Categorie (ID_Categorie int AUTO_INCREMENT NOT NULL,
-Nom VARCHAR(30),
+Nom VARCHAR(30) UNIQUE,
 PRIMARY KEY (ID_Categorie) ) ENGINE=InnoDB;
-
-DROP TABLE IF EXISTS Commentaire ;
-CREATE TABLE Commentaire (ID_Commentaire int AUTO_INCREMENT NOT NULL,
-Note_Commentaire INT,
-Commentaire VARCHAR( 300 ),
-ID_Achat INT NOT NULL,
-PRIMARY KEY (ID_Commentaire) ) ENGINE=InnoDB;
 
 ALTER TABLE Projet ADD CONSTRAINT FK_Projet_ID_Utilisateur FOREIGN KEY (ID_Utilisateur) REFERENCES Utilisateur (ID_Utilisateur);
 
@@ -51,4 +46,3 @@ ALTER TABLE Projet ADD CONSTRAINT FK_Projet_ID_Categorie FOREIGN KEY (ID_Categor
 ALTER TABLE Projet ADD CONSTRAINT FK_Projet_ID_Achat FOREIGN KEY (ID_Achat) REFERENCES Achat (ID_Achat);
 ALTER TABLE Achat ADD CONSTRAINT FK_Achat_ID_Utilisateur FOREIGN KEY (ID_Utilisateur) REFERENCES Utilisateur (ID_Utilisateur);
 ALTER TABLE Achat ADD CONSTRAINT FK_Achat_ID_Projet FOREIGN KEY (ID_Projet) REFERENCES Projet (ID_Projet);
-ALTER TABLE Commentaire ADD CONSTRAINT FK_Commentaire_ID_Achat FOREIGN KEY (ID_Achat) REFERENCES Achat (ID_Achat);
