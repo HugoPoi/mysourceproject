@@ -1,10 +1,10 @@
 <div class="row">
 	<div class="span2"><img ng-src="img/project/{{project.ID_Projet}}.jpg"/>
-		<p> {{project.note}}</p>
+		<p> {{project.note}}</p>Note :
 	<form >	
 		<span class="rating"><span class="star" ng-repeat="star in rating" ng-click="mark($index)" ng-class="{'active-star' : star}"></span></span>
 		
-		<p> {{project.Prix_projet}} €</p>
+		Prix :<p> {{project.Prix_projet}} €</p>
 		<button ng-click="buy()" class="btn">{{button}}</button>
 	</div>
 	<div class="span6">

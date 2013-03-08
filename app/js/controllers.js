@@ -27,9 +27,11 @@ function ProjectDetailCtrl($scope, $routeParams, Project, $location) {
 		$scope.rating = [0,0,0,0,0];
 		
 		if($scope.project.buy == 1) { 
-			$scope.mark = function(val){
+			$scope.mark = function(val){ $scope.rating = [0,0,0,0,0];
 				convertstar(val);
-				console.log(val);
+				
+				markproject(val);
+				
 			}
 			
 			
@@ -61,7 +63,19 @@ function ProjectDetailCtrl($scope, $routeParams, Project, $location) {
 			{			
 				$scope.rating[k]=1;
 				k--;}
-
+	}
+	function markproject(val){
+	if(val==4)
+	$scope.project.note=1;
+	if(val==3)
+	$scope.project.note=2;
+	if(val==2)
+	$scope.project.note=3;
+	if(val==1)
+	$scope.project.note=4;
+	if(val==0)
+	$scope.project.note=5;
+	
 	}
 	
 }
