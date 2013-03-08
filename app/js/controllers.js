@@ -38,7 +38,7 @@ function ProjectDetailCtrl($scope, $routeParams, Project, $location, Achat) {
 				console.log(convertrate(val));
      }
 			$scope.button = 'Download';
-			$scope.buy = function() {$location.path('/download/'+$routeParams.projectId);}
+			$scope.buy = function() {window.location = 'api/uploadedFiles/'+$scope.project.Path_Projet;}
 			} else { 
 			$scope.button = 'Acheter';
 			$scope.buy = function() {
@@ -155,15 +155,18 @@ function ProjectUploadCtrl($scope,Project,Categorie,$routeParams,$location){
     
     $scope.projectid = $routeParams.projectId;
     $scope.maj = function(respond){
+        if(respond.success !== undefined){
         console.log("UPLOADED"+respond);
+         $location.path('/project/'+$scope.projectid);
+        }
       }
     
   }
 function RegisterProjectCtrl($scope, Project, Categorie, $routeParams,$location) {
 	$scope.registerProjectForm = function(project){
-		project.Path_Projet ='dfghjkl';
+		project.Path_Projet ='vide';
 		project.Prix_projet ='1';
-		project.Path_Code_Demo = 'dfghjkl';
+		project.Path_Code_Demo = 'vide';
 		Project.save(project, function(respond){
 			if(respond.success !== undefined){
 				$location.path('/upload/' + respond.ID_Projet);

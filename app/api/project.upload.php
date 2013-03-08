@@ -36,7 +36,7 @@ foreach( $_FILES as $file ){
 $sql = " UPDATE Projet SET Path_Projet = '".$file['name']."' WHERE ID_Projet = '$idProjet'" ;
 
 if(mysqli_query( $db_conx,$sql )){
-    echo json_encode(array('success' => 'upload OK ! ')) ;
+    echo json_encode(array('success' => 'upload OK ')) ;
 }
 else{
     echo json_encode(array('error' => 'erreur d\'upload ! ')) ;
