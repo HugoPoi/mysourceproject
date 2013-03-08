@@ -1,13 +1,13 @@
 <div class="row">
-	<div class="span2"><img ng-src="img/{{project.img}}"/>
+	<div class="span2"><img ng-src="img/project/{{project.ID_Projet}}.jpg"/>
 		<p> {{project.note}}</p>
 		<span class="rating"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></span>
-		<p> {{project.price}}</p>
+		<p> {{project.Prix_projet}} €</p>
 		<button ng-click="buy()" class="btn">{{button}}</button>
 	</div>
 	<div class="span6">
-		<h2>{{project.name}}</h2>
-		<p>{{project.description}}</p>
+		<h2>{{project.Titre_Projet}}</h2>
+		<p>{{project.Description_Projet}}</p>
 	</div>
 </div>
 <div class="row">
@@ -20,7 +20,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="offset1 span6 blue-border" ng-show="project.commentaire">
+			<div class="offset1 span6 blue-border" ng-show="project.commentaires">
 				<h4>Avis utilisateurs</h4>
 				<div id="myCarousel" class="carousel slide" >
 					<ol class="carousel-indicators">
@@ -30,8 +30,8 @@
 					<div class="item" ng-class="{active : $first}" ng-repeat="commentaire in project.commentaires">
 						<div class="row">
 							<div class="span5">
-								<section class="span4" >{{commentaire.username}}</section>
-								<section class="span4" >{{commentaire.content}}</section>
+								<section class="span4" >{{commentaire.Nom_Utilisateur}}</section>
+								<section class="span4" >{{commentaire.Commentaire}}</section>
 							</div>
 						</div>
 					</div> 
@@ -40,7 +40,7 @@
 					<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 				</div>
 			</div>
-			<div class="offset1 span6 blue-border" ng-hide="project.commentaire">
+			<div class="offset1 span6 blue-border" ng-show="project.buy == 1">
 				<h4>Ecrivez votre commentaire:</h4>
 				<textarea rows="3" ng-model="com"></textarea>
 					<div class="control-group">

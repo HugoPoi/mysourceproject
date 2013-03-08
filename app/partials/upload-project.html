@@ -1,0 +1,32 @@
+<div class="row"><h4><u>Upload un projet - Upload des fichiers</u></h4></div>
+<div class="row">
+	<div class="span2"></div><div class="span4 newMarge">
+		<form class="form-horizontal" >
+		<div class="row"> 
+			<section>
+				<div class="span3 blue-border marge">
+					<label>Joindre l'avatar du projet : </label>
+					<input type="file" id="avatar" ng-model="project.avatar" />
+				</div>
+			</section>
+			<section>
+				<div class="span3 blue-border marge">
+				<label>Joindre des screens de votre projet : </label>
+					<input type="file" id="screens" ng-model="project.screens" />
+				</div>
+			</section></div>
+			<div class="row">
+				<section>
+					<div class="span3 blue-border marge">
+					<label>Joindre les codes sources du projet : </label>
+						<input type="file" id="sources" ng-model="project.sources" />
+					</div>
+					
+				</section> 
+				
+				<div class="span3 marge"> <button class="btn btn-large" type="submit" ng-click="uploadProjectForm(project)">
+				Soumettre projet</button></div></div> 
+		</form>	
+		</div> </div>
+		
+			
