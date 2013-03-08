@@ -21,13 +21,14 @@ function ProjectListCtrl($scope, Project) {
 	
 }
 
-function ProjectDetailCtrl($scope, $routeParams, Project, $location) {
-	Project.query({action:'select',ID_Projet: $routeParams.projectId}, function(project) {
+function ProjectDetailCtrl($scope, $routeParams, Project, $location, Achat) {
+	function MajProject() {
+  Project.query({action:'select',ID_Projet: $routeParams.projectId}, function(project) {
 		$scope.project = project[0];
 		if($scope.project.buy == 1) {
-	$scope.mark = function(val){
-	console.log(val);
-	}
+      $scope.mark = function(val){
+      console.log(val);
+      }
       $scope.button = 'Download';
       $scope.buy = function() {$location.path('/download/'+$routeParams.projectId);}
     } else { 
@@ -35,10 +36,14 @@ function ProjectDetailCtrl($scope, $routeParams, Project, $location) {
       $scope.buy = function() {$location.path('/buy/'+$routeParams.projectId);}
       }
 	});
-
+  }
+  MajProject();
 	$scope.postercom = function(com) {
-		$scope.project.commentaire=com;
-		console.log(com);
+    Achat.comment({Commentaire: com.Commentaire, ID_Projet:$routeParams.projectId},function(respond){
+      if(respond.success !== undefined){
+          MajProject();
+        }
+    })
 	};
 	$scope.resetcom = function(com){ $scope.com="";}
 	
@@ -117,11 +122,12 @@ function BuyCtrl($scope, $routeParams, Project, $location, Achat, $filter) {
 }
 
 function ProjectUploadCtrl($scope,Project,Categorie,$routeParams,$location){
-$scope.uploadProjectForm =function(project) {
-	/* récupérer et  faire l'enregistrement des fichiers dans les dossiers */ 
-}
+    $scope.maj = function(respond){
+        console.log("UPLOADED"+respond);
+      }
+    
+  }
 
-}
 function RegisterProjectCtrl($scope, Project, Categorie, $routeParams,$location) {
 	$scope.registerProjectForm = function(project){
     project.Path_Projet ='dfghjkl';

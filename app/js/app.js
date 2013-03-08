@@ -2,7 +2,7 @@
 
 /* App Module */
 
-angular.module('mySourceProject', ['mySourceProjectFilters', 'mySourceProjectServices','mySourceProjectDirectives']).
+angular.module('mySourceProject', ['mySourceProjectFilters', 'mySourceProjectServices','mySourceProjectDirectives','ngUpload']).
   config(['$routeProvider', function($routeProvider) {
   $routeProvider.
       when('/home', {templateUrl: 'partials/project-list.html',   controller: ProjectListCtrl}).

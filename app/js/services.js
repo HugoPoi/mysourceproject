@@ -6,7 +6,8 @@ angular.module('mySourceProjectServices', ['ngResource']).
     factory('Project', function($resource){
   return $resource('api/project.:action.php', {}, {
     query: {method:'GET', params:{action:'all'}, isArray:true},
-    save: {method:'PUT', params:{action:'save'}, isArray:false}
+    save: {method:'PUT', params:{action:'save'}, isArray:false},
+    upload: {method:'POST', params:{action:'upload'}, isArray:false}
   });
 }).factory('Categorie', function($resource){
   return $resource('projects/categorie.json', {}, {
@@ -22,6 +23,7 @@ angular.module('mySourceProjectServices', ['ngResource']).
   });
 }).factory('Achat', function($resource){
   return $resource('api/achat.:action.php', {}, {
-    buy: {method:'PUT', params:{action:'buy'} , isArray:false}
+    buy: {method:'PUT', params:{action:'buy'} , isArray:false},
+    comment: {method:'PUT', params:{action:'comment'} , isArray:false}
   });
 });

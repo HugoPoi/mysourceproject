@@ -14,17 +14,17 @@ if(isset($_SESSION["Id"])){
 //get the value 
 $note     = isset($DATA -> { 'Note_Achat'  })? $DATA -> { 'Note_Achat'  } : null;
 $comment  = isset($DATA -> { 'Commentaire' })? $DATA -> { 'Commentaire' } : null;
-$idProjet = isset($DATA -> { 'ID_Projet'   })?  : null;
-
+$idProjet = isset($DATA -> { 'ID_Projet'   })? $DATA -> { 'ID_Projet'   } : null;
 
 //insert 
-$sql   =  " UPDATE INTO Achat SET Note_Achat = '$note', Commentaire = '$comment' WHERE ID_Projet = '$idProjet' " ;
+$sql   =  " UPDATE Achat SET Note_Achat = '$note', Commentaire = '$comment' WHERE ID_Projet = '$idProjet' AND ID_Utilisateur= '".$_SESSION["Id"]."' " ;
+
 // check the insert
 if(mysqli_query( $db_conx,$sql )){
     echo json_encode(array('success' => ' Commentaire enregistré ')) ;
 }
 else{
-    echo json_encode(array('error' => mysqli_error() )) ;
+    echo json_encode(array('error' => 'Error SQL' )) ;
 }
 }
 
