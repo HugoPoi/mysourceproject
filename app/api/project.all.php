@@ -4,8 +4,6 @@ require_once("connectdb.php") ;
 session_start();
 
 
-$Iduser = $_SESSION["Id"] ;
-
 $sql = "SELECT * FROM Projet " ;
 $result   = mysqli_query( $db_conx, $sql ) ;
 
