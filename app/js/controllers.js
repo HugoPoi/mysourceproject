@@ -55,7 +55,7 @@ function RegisterCtrl($scope, User){
   $scope.registerForm = function(user){
       if(user.mot_de_passe == user.confirm_mdp){
         User.save(user,function(error){
-			if(error.error !== undefined) $scope.registerOK="Ok";
+			if(error.success !== undefined) $scope.registerOK="Ok";
 		});
       }
 	  
@@ -113,7 +113,7 @@ function ProjectUploadCtrl($scope,Project,Categorie,$routeParams,$location){
 
 }
 function RegisterProjectCtrl($scope, Project, Categorie, $routeParams,$location) {
-	$scope.uploadProjectForm = function(project){
+	$scope.registerProjectForm = function(project){
     project.Path_Projet ='dfghjkl';
     project.Prix_projet ='1';
     project.Path_Code_Demo = 'dfghjkl';
