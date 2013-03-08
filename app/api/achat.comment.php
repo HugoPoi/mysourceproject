@@ -16,6 +16,7 @@ $note     = isset($DATA -> { 'Note_Achat'  })? $DATA -> { 'Note_Achat'  } : null
 $comment  = isset($DATA -> { 'Commentaire' })? $DATA -> { 'Commentaire' } : null;
 $idProjet = isset($DATA -> { 'ID_Projet'   })? $DATA -> { 'ID_Projet'   } : null;
 
+
 //insert 
 $sql   =  " UPDATE Achat SET Note_Achat = '$note', Commentaire = '$comment' WHERE ID_Projet = '$idProjet' AND ID_Utilisateur= '".$_SESSION["Id"]."' " ;
 
