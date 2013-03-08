@@ -24,7 +24,7 @@ $sql   =  " INSERT INTO Utilisateur ( Type_Utilisateur, Nom_Utilisateur, Prenom_
 // check the insert
 
 if(mysqli_query( $db_conx,$sql )){
-    echo json_encode(array('success' => 'Utilisateur enregistré !')) ;
+    echo json_encode(array('success' => 'Utilisateur enregistrÃ© !')) ;
 }
 else{
     echo json_encode(array('error' => mysqli_error() )) ;
