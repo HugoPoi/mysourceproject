@@ -25,11 +25,12 @@ function ProjectDetailCtrl($scope, $routeParams, Project, $location) {
 	Project.query({action:'select',ID_Projet: $routeParams.projectId}, function(project) {
 		$scope.project = project[0];
 		if($scope.project.buy == 1) {
-      $scope.button = 'Download';
-      $scope.buy = function() {$location.path('/download/'+$routeParams.projectId);}
-    } else { $scope.mark = function(val){
+	$scope.mark = function(val){
 	console.log(val);
 	}
+      $scope.button = 'Download';
+      $scope.buy = function() {$location.path('/download/'+$routeParams.projectId);}
+    } else { 
       $scope.button = 'Acheter';
       $scope.buy = function() {$location.path('/buy/'+$routeParams.projectId);}
       }
@@ -85,6 +86,7 @@ function UserCtrl($scope,$location, Login,$rootScope){
       Login.login({'deconnection': true}, function(){
           $scope.profile = false;
           $rootScope.profile = false;
+		  $location.path('/home');
         });
     }
 	$scope.register = function(){
