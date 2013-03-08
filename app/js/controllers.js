@@ -25,17 +25,23 @@ function ProjectDetailCtrl($scope, $routeParams, Project, $location) {
 	Project.query({action:'select',ID_Projet: $routeParams.projectId}, function(project) {
 		$scope.project = project[0];
 		if($scope.project.buy == 1) {
-	$scope.mark = function(val){
-	console.log(val);
-	}
-      $scope.button = 'Download';
-      $scope.buy = function() {$location.path('/download/'+$routeParams.projectId);}
-    } else { 
-      $scope.button = 'Acheter';
-      $scope.buy = function() {$location.path('/buy/'+$routeParams.projectId);}
-      }
+			$scope.mark = function(val){
+				console.log(val);
+			}
+			$scope.button = 'Download';
+			$scope.buy = function() {$location.path('/download/'+$routeParams.projectId);}
+			} else { 
+			$scope.button = 'Acheter';
+			$scope.buy = function() {
+				/*Si on appuie sur acheter sans être loggé redirection home*/
+				if(!$scope.profile)
+				{$location.path('/register');	}
+				else
+				$location.path('/buy/'+$routeParams.projectId);
+			}
+		}
 	});
-
+	
 	$scope.postercom = function(com) {
 		$scope.project.commentaire=com;
 		console.log(com);
@@ -43,7 +49,7 @@ function ProjectDetailCtrl($scope, $routeParams, Project, $location) {
 	$scope.resetcom = function(com){ $scope.com="";}
 	
 	
-  
+	
 }
 
 function NavigationCtrl($scope,$routeParams,$location, $rootScope, Categorie){
@@ -56,44 +62,44 @@ function NavigationCtrl($scope,$routeParams,$location, $rootScope, Categorie){
 
 
 function RegisterCtrl($scope, User){
-  
-  $scope.registerForm = function(user){
-      if(user.mot_de_passe == user.confirm_mdp){
-        User.save(user,function(error){
-			if(error.success !== undefined) $scope.registerOK="Ok";
-		});
-      }
-	  
-    }
+	
+	$scope.registerForm = function(user){
+		if(user.mot_de_passe == user.confirm_mdp){
+			User.save(user,function(error){
+				if(error.success !== undefined) $scope.registerOK="Ok";
+			});
+		}
+		
+	}
 }
 
 function UserCtrl($scope,$location, Login,$rootScope){
-  Login.login({},function(profile){
-    if(profile.error === undefined){
-        $scope.profile = profile;
-        $rootScope.profile = profile;
-      }
-    })
+	Login.login({},function(profile){
+		if(profile.error === undefined){
+			$scope.profile = profile;
+			$rootScope.profile = profile;
+		}
+	})
 	$scope.login = function(user) {
-    Login.login(user,function(profile){
-      if(profile.error === undefined){
-      $scope.profile = profile;
-      $rootScope.profile = profile;
-      }
-      });
+		Login.login(user,function(profile){
+			if(profile.error === undefined){
+				$scope.profile = profile;
+				$rootScope.profile = profile;
+			}
+		});
 	}
-  $scope.logout = function(){
-      Login.login({'deconnection': true}, function(){
-          $scope.profile = false;
-          $rootScope.profile = false;
-		  $location.path('/home');
-        });
-    }
+	$scope.logout = function(){
+		Login.login({'deconnection': true}, function(){
+			$scope.profile = false;
+			$rootScope.profile = false;
+			$location.path('/home');
+		});
+	}
 	$scope.register = function(){
 		$location.path('/register'); 
 	}
 	$scope.myprojects = function() {
-	$location.path('/myprojects');
+		$location.path('/myprojects');
 	}
 }
 
@@ -102,9 +108,9 @@ function BuyCtrl($scope, $routeParams, Project, $location) {
 		$scope.project = project[0];
 	});
 	$scope.confirm = function() {
-    Achat.buy({'Date_Achat':'','ID_Projet': $routeParams.projectId}, function(error){
-      
-    })
+		Achat.buy({'Date_Achat':'','ID_Projet': $routeParams.projectId}, function(error){
+			
+		})
 		console.log("ACHAT EFFECTUE");
 		$location.path('/project/' +$routeParams.projectId);
 	}
@@ -115,22 +121,22 @@ function BuyCtrl($scope, $routeParams, Project, $location) {
 }
 
 function ProjectUploadCtrl($scope,Project,Categorie,$routeParams,$location){
-$scope.uploadProjectForm =function(project) {
-	/* récupérer et  faire l'enregistrement des fichiers dans les dossiers */ 
-}
-
+	$scope.uploadProjectForm =function(project) {
+		/* récupérer et  faire l'enregistrement des fichiers dans les dossiers */ 
+	}
+	
 }
 function RegisterProjectCtrl($scope, Project, Categorie, $routeParams,$location) {
 	$scope.registerProjectForm = function(project){
-    project.Path_Projet ='dfghjkl';
-    project.Prix_projet ='1';
-    project.Path_Code_Demo = 'dfghjkl';
-    Project.save(project, function(respond){
-      if(respond.success !== undefined){
-	  $location.path('/upload/' +$routeParams.projectId);
-        console.log('success');
-     }
-   });
+		project.Path_Projet ='dfghjkl';
+		project.Prix_projet ='1';
+		project.Path_Code_Demo = 'dfghjkl';
+		Project.save(project, function(respond){
+			if(respond.success !== undefined){
+				$location.path('/upload/' +$routeParams.projectId);
+				console.log('success');
+			}
+		});
 	}
 	$scope.categories = Categorie.query();
 }
