@@ -9,12 +9,17 @@ session_start() ;
 $DATA  = json_decode( file_get_contents("php://input") );
 
 if(isset($_SESSION["Id"])){
+  
+$idProjet = isset($DATA -> { 'ID_Projet'   })? $DATA -> { 'ID_Projet'   } : null;
 
+$sql = "SELECT * FROM Achat WHERE ID_Projet = '$idProjet' AND ID_Utilisateur= '".$_SESSION["Id"]."' ";
+if($result = mysqli_query( $db_conx,$sql )){
+  $old_comment = mysqli_fetch_array( $result, MYSQLI_ASSOC );
+}
 
 //get the value 
-$note     = isset($DATA -> { 'Note_Achat'  })? $DATA -> { 'Note_Achat'  } : null;
-$comment  = isset($DATA -> { 'Commentaire' })? $DATA -> { 'Commentaire' } : null;
-$idProjet = isset($DATA -> { 'ID_Projet'   })? $DATA -> { 'ID_Projet'   } : null;
+$note     = isset($DATA -> { 'Note_Achat'  })? $DATA -> { 'Note_Achat'  } : $old_comment['Note_Achat'];
+$comment  = isset($DATA -> { 'Commentaire' })? $DATA -> { 'Commentaire' } : $old_comment['Commentaire'];
 
 
 //insert 
