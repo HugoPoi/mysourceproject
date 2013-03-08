@@ -24,10 +24,15 @@ function ProjectListCtrl($scope, Project) {
 function ProjectDetailCtrl($scope, $routeParams, Project, $location) {
 	Project.query({action:'select',ID_Projet: $routeParams.projectId}, function(project) {
 		$scope.project = project[0];
-		if($scope.project.buy == 1) {
+		$scope.rating = [0,0,0,0,0];
+		
+		if($scope.project.buy == 1) { 
 			$scope.mark = function(val){
+				convertstar(val);
 				console.log(val);
 			}
+			
+			
 			$scope.button = 'Download';
 			$scope.buy = function() {$location.path('/download/'+$routeParams.projectId);}
 			} else { 
@@ -48,7 +53,16 @@ function ProjectDetailCtrl($scope, $routeParams, Project, $location) {
 	};
 	$scope.resetcom = function(com){ $scope.com="";}
 	
-	
+	function convertstar(val){
+		
+		 var color=5-val;
+		var k=4;
+			for(var j=0;j<color;j++)
+			{			
+				$scope.rating[k]=1;
+				k--;}
+
+	}
 	
 }
 
@@ -103,16 +117,20 @@ function UserCtrl($scope,$location, Login,$rootScope){
 	}
 }
 
-function BuyCtrl($scope, $routeParams, Project, $location) {
+function BuyCtrl($scope, $routeParams, Project, $location, Achat, $filter) {
 	Project.query({action:'select', ID_Projet: $routeParams.projectId}, function(project) {
 		$scope.project = project[0];
 	});
 	$scope.confirm = function() {
-		Achat.buy({'Date_Achat':'','ID_Projet': $routeParams.projectId}, function(error){
-			
+		
+		var formatDate = $filter('date');
+		Achat.buy({'Date_Achat': formatDate(Date.now(),'yyyy-MM-dd'),'ID_Projet': $routeParams.projectId}, function(respond){
+			console.log(respond);
+			if(respond.success !== undefined){
+				$location.path('/project/' +$routeParams.projectId);
+			}
 		})
-		console.log("ACHAT EFFECTUE");
-		$location.path('/project/' +$routeParams.projectId);
+		
 	}
 	$scope.reset = function() {
 		console.log("ACHAT ANNULE");

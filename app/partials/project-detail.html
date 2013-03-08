@@ -2,7 +2,7 @@
 	<div class="span2"><img ng-src="img/project/{{project.ID_Projet}}.jpg"/>
 		<p> {{project.note}}</p>
 	<form >	
-		<span class="rating"><span class="star" ng-click="mark(5)"></span><span class="star" ng-click="mark(4)"></span><span class="star" ng-click="mark(3)"></span><span class="star" ng-click="mark(2)"></span><span class="star" ng-click="mark(1)"></span></span>
+		<span class="rating"><span class="star" ng-repeat="star in rating" ng-click="mark($index)" ng-class="{'active-star' : star}"></span></span>
 		
 		<p> {{project.Prix_projet}} €</p>
 		<button ng-click="buy()" class="btn">{{button}}</button>
@@ -32,10 +32,12 @@
 					<div class="item" ng-class="{active : $first}" ng-repeat="commentaire in project.commentaires">
 						<div class="row">
 							<div class="span5">
-								<section class="span4" >{{commentaire.Nom_Utilisateur}}</section>
-								<section class="span4" >{{commentaire.Commentaire}}</section>
-							</div>
-						</div>
+						<section class="span3" ><b><u>L'utilisateur :</u> <i>{{commentaire.Nom_Utilisateur}}</i></b></section> </div></div><br>
+							<div class="row">
+							<div class="span4"><section class="span3" > <b>a écrit:</b>  <i>{{commentaire.Commentaire}}</i></section>
+							</div></div>
+							
+						
 					</div> 
 					<!-- Carousel nav --> 
 					<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
