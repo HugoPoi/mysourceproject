@@ -1,0 +1,31 @@
+<div class="row">
+	<div class="span2"></div><div class="span4 newMarge">
+		<form class="form-horizontal" >
+			<div class="control-group">
+				<label class="control-label" for="inputName">Nom du projet : </label>
+				<div class="controls">
+					<input type="text" id="inputName" placeholder="Nom" ng-model="project.Titre_Projet" required>
+				</div>
+			</div>
+			
+			<div class="control-group">
+				<label class="control-label" for="inputDescription">Description :</label>
+				<div class="controls">
+          <textarea id="inputDescription" placeholder="Décrivez votre projet" ng-model="project.Description_Projet" required rows="3"></textarea>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" >Catégorie</label>
+				<div class="controls">
+					<select ng-model="project.ID_Categorie">
+						<option ng-repeat="categorie in categories" value="{{categorie.id}}" >{{categorie.name}}</option>
+					</select>
+				</div>
+			</div>
+			
+		</div> </div>
+		
+				
+				<div class="span3 marge"> <button class="btn btn-large" type="submit" ng-click="registerProjectForm(project)">
+				Upload des documents</button></div></div> 
+			</form>	

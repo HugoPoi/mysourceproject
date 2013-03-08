@@ -9,7 +9,8 @@ angular.module('mySourceProject', ['mySourceProjectFilters', 'mySourceProjectSer
       when('/project/:projectId', {templateUrl: 'partials/project-detail.html', controller: ProjectDetailCtrl}).
       when('/register', {templateUrl: 'partials/register.html', controller: RegisterCtrl}).
 	   when('/buy/:projectId', {templateUrl: 'partials/facturation.html', controller: BuyCtrl}).
-	   when('/upload', {templateUrl: 'partials/uploadproject.html', controller: ProjectUploadCtrl}).
+	   when('/upload', {templateUrl: 'partials/upload-project.html', controller: ProjectUploadCtrl}).
+	   when('/registerproject', {templateUrl: 'partials/register-project.html', controller: RegisterProjectCtrl}).
 	   when('/myprojects', {templateUrl: 'partials/mesprojets.html', controller: ShowMyProjectsCtrl}).
       otherwise({redirectTo: '/home'});
 }]);
