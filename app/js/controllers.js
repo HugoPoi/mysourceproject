@@ -28,9 +28,8 @@ function ProjectDetailCtrl($scope, $routeParams, Project, $location) {
 		
 		if($scope.project.buy == 1) { 
 			$scope.mark = function(val){ $scope.rating = [0,0,0,0,0];
-				convertstar(val);
-				
-				markproject(val);
+				convertstar(val); //remplissage des étoiles après le clic
+				markproject(val); //donne la note correspondant au clic
 				
 			}
 			
