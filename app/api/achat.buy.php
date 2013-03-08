@@ -15,19 +15,19 @@ if(isset($_SESSION["Id"])){
 $date     = isset($DATA -> { 'Date_Achat'  })? $DATA -> { 'Date_Achat'  } : null;
 $note     = isset($DATA -> { 'Note_Achat'  })? $DATA -> { 'Note_Achat'  } : null;
 $comment  = isset($DATA -> { 'Commentaire' })? $DATA -> { 'Commentaire' } : null;
-$iduser   = $SESSION["Id"] ;
-$idProjet = isset($DATA -> { 'ID_Projet'   })?  : null;
+$iduser   = $_SESSION["Id"] ;
+$idProjet = isset($DATA -> { 'ID_Projet'   })? $DATA -> { 'ID_Projet'   } : null;
 
 
 //insert 
-$sql   =  " INSERT INTO Achat ( Date_Achat, Note_Achat, Commentaire, ID_Utilisateur, ID_Projet ) VALUES ( '$date', $note, '$comment', '$iduser', '$idProjet' )" ;
+$sql   =  " INSERT INTO Achat ( Date_Achat, Note_Achat, Commentaire, ID_Utilisateur , ID_Projet ) VALUES ( '$date', '$note', '$comment', '$iduser', '$idProjet' )" ;
 
 // check the insert
 if(mysqli_query( $db_conx,$sql )){
-    echo json_encode(array('success' => 'Achat enregistré !')) ;
+    echo json_encode(array('success' => 'Achat enregistrÃ© !')) ;
 }
 else{
-    echo json_encode(array('error' => mysqli_error() )) ;
+    echo json_encode(array('error' => 'Erreur MySQL' )) ;
 }
 }
 

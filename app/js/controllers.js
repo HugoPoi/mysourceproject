@@ -97,16 +97,18 @@ function UserCtrl($scope,$location, Login,$rootScope){
 	}
 }
 
-function BuyCtrl($scope, $routeParams, Project, $location) {
+function BuyCtrl($scope, $routeParams, Project, $location, Achat, $filter) {
 	Project.query({action:'select', ID_Projet: $routeParams.projectId}, function(project) {
 		$scope.project = project[0];
 	});
 	$scope.confirm = function() {
-    Achat.buy({'Date_Achat':'','ID_Projet': $routeParams.projectId}, function(error){
-      
+    var formatDate = $filter('date');
+    Achat.buy({'Date_Achat': formatDate(Date.now(),'yyyy-MM-dd'),'ID_Projet': $routeParams.projectId}, function(respond){
+    console.log(respond);
+      if(respond.success !== undefined){
+        $location.path('/project/' +$routeParams.projectId);
+       }
     })
-		console.log("ACHAT EFFECTUE");
-		$location.path('/project/' +$routeParams.projectId);
 	}
 	$scope.reset = function() {
 		console.log("ACHAT ANNULE");

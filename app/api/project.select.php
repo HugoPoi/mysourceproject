@@ -15,7 +15,7 @@ $result   = mysqli_query( $db_conx, $sql ) ;
 if($result){
 
     while( $row[] = mysqli_fetch_array( $result, MYSQLI_ASSOC )  ) ;
-    $sql = "SELECT `achat`.*,utilisateur.Nom_Utilisateur FROM `achat` JOIN utilisateur ON utilisateur.ID_Utilisateur=`achat`.ID_Utilisateur WHERE `achat`.`ID_Projet`=".$_GET['ID_Projet'];
+    $sql = "SELECT `achat`.*,utilisateur.Nom_Utilisateur FROM `achat` JOIN utilisateur ON utilisateur.ID_Utilisateur=`achat`.ID_Utilisateur WHERE `achat`.Commentaire != '' AND `achat`.`ID_Projet`=".$_GET['ID_Projet'];
     $result   = mysqli_query( $db_conx, $sql ) ;
     if($result){
       while( $row2[] = mysqli_fetch_array( $result, MYSQLI_ASSOC )  ) ;
