@@ -54,11 +54,11 @@ function RegisterCtrl($scope, User){
   
   $scope.registerForm = function(user){
       if(user.mot_de_passe == user.confirm_mdp){
-        console.log(User.save(user));
+        User.save(user,function(error){
+			if(error.error !== undefined) $scope.registerOK="Ok";
+		});
       }
-	  if(user)
-	  $scope.registerOK="Ok";
-	  else $scope.registerOK="";
+	  
     }
 }
 
@@ -108,13 +108,18 @@ function BuyCtrl($scope, $routeParams, Project, $location) {
 	}
 }
 
-function ProjectUploadCtrl($scope, Project, Categorie) {
+function ProjectUploadCtrl($scope,Project,Categorie,$routeParams,$location){
+
+
+}
+function RegisterProjectCtrl($scope, Project, Categorie, $routeParams,$location) {
 	$scope.uploadProjectForm = function(project){
     project.Path_Projet ='dfghjkl';
     project.Prix_projet ='1';
     project.Path_Code_Demo = 'dfghjkl';
     Project.save(project, function(error){
       if(error.success !== undefined){
+	  $location.path('/upload/' +$routeParams.projectId);
         console.log('success');
      }
    });
