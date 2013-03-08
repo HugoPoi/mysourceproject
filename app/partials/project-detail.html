@@ -1,7 +1,9 @@
 <div class="row">
 	<div class="span2"><img ng-src="img/project/{{project.ID_Projet}}.jpg"/>
 		<p> {{project.note}}</p>
-		<span class="rating"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></span>
+	<form >	
+		<span class="rating"><span class="star" ng-click="mark(5)"></span><span class="star" ng-click="mark(4)"></span><span class="star" ng-click="mark(3)"></span><span class="star" ng-click="mark(2)"></span><span class="star" ng-click="mark(1)"></span></span>
+		
 		<p> {{project.Prix_projet}} €</p>
 		<button ng-click="buy()" class="btn">{{button}}</button>
 	</div>
@@ -49,4 +51,5 @@
 				</div>
 			</div>
 			</div>
-		</div>		
+		</div>	
+		</form>
