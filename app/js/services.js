@@ -13,11 +13,15 @@ angular.module('mySourceProjectServices', ['ngResource']).
     query: {method:'GET', params:{} , isArray:true}
   });
 }).factory('User', function($resource){
-  return $resource('/api/Utilisateur.php', {}, {
+  return $resource('api/Utilisateur.php', {}, {
     save: {method:'PUT', params:{} , isArray:false}
   });
 }).factory('Login', function($resource){
-  return $resource('/api/login.php', {}, {
+  return $resource('api/login.php', {}, {
     login: {method:'PUT', params:{} , isArray:false}
+  });
+}).factory('Achat', function($resource){
+  return $resource('api/achat.:action.php', {}, {
+    buy: {method:'PUT', params:{action:'buy'} , isArray:false}
   });
 });

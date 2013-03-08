@@ -16,7 +16,6 @@ function ProjectListCtrl($scope, Project) {
 				viewprojects.push(container);
 			}
 		}
-		console.log(viewprojects);
 		$scope.projects = viewprojects;
 	});
 	
@@ -25,16 +24,15 @@ function ProjectListCtrl($scope, Project) {
 function ProjectDetailCtrl($scope, $routeParams, Project, $location) {
 	Project.query({action:'select',ID_Projet: $routeParams.projectId}, function(project) {
 		$scope.project = project[0];
-		if(project[0].buy != 0) {$scope.button = 'Download'} else { $scope.button = 'Acheter' }
+		if($scope.project.buy == 1) {
+      $scope.button = 'Download';
+      $scope.buy = function() {$location.path('/download/'+$routeParams.projectId);}
+    } else { 
+      $scope.button = 'Acheter';
+      $scope.buy = function() {$location.path('/buy/'+$routeParams.projectId);}
+      }
 	});
-	$scope.buy = function() {
-		if($scope.project.buy){
-			$location.path('/download/'+$routeParams.projectId);
-		}
-		else {
-			$location.path('/buy/'+$routeParams.projectId);
-		}
-	}
+
 	$scope.postercom = function(com) {
 		$scope.project.commentaire=com;
 		console.log(com);
@@ -94,10 +92,13 @@ function UserCtrl($scope,$location, Login,$rootScope){
 }
 
 function BuyCtrl($scope, $routeParams, Project, $location) {
-	Project.query({projectId: $routeParams.projectId}, function(project) {
+	Project.query({action:'select', ID_Projet: $routeParams.projectId}, function(project) {
 		$scope.project = project[0];
 	});
 	$scope.confirm = function() {
+    Achat.buy({'Date_Achat':'','ID_Projet': $routeParams.projectId}, function(error){
+      
+    })
 		console.log("ACHAT EFFECTUE");
 		$location.path('/project/' +$routeParams.projectId);
 	}

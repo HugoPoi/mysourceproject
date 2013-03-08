@@ -31,6 +31,6 @@ if(mysqli_query( $db_conx,$sql )){
     echo json_encode(array('success' => 'Projet Uploadé :-)')) ;
 }
 else{
-    echo json_encode(array('error' => $sql)) ;
+    echo json_encode(array('error' => 'Erreur d\'insertion')) ;
 }
 }

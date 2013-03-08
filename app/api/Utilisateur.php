@@ -24,10 +24,9 @@ $sql   =  " INSERT INTO Utilisateur ( Type_Utilisateur, Nom_Utilisateur, Prenom_
 // check the insert
 
 if(mysqli_query( $db_conx,$sql )){
-    echo "user added" ;
+    echo json_encode(array('success' => 'Utilisateur enregistré !')) ;
 }
 else{
-
-    echo " failed to insert the user : " .mysqli_error() ;
+    echo json_encode(array('error' => mysqli_error() )) ;
 }
 }
