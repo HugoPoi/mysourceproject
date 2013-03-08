@@ -1,7 +1,8 @@
 <div class="row"><h4><u>Upload un projet - Upload des fichiers</u></h4></div>
 <div class="row">
 	<div class="span2"></div><div class="span4 newMarge">
-		<form class="form-horizontal" action="/api/projet.upload.php" ng-upload="maj(respond)">
+		<form class="form-horizontal" action="/api/project.upload.php" ng-upload="maj(respond)">
+    <input type="hidden" name="ID_Projet" value="{{projectid}}">
 		<div class="row"> 
 			<section>
 				<div class="span3 blue-border marge">

@@ -152,7 +152,8 @@ function BuyCtrl($scope, $routeParams, Project, $location, Achat, $filter) {
 }
 
 function ProjectUploadCtrl($scope,Project,Categorie,$routeParams,$location){
-
+    
+    $scope.projectid = $routeParams.projectId;
     $scope.maj = function(respond){
         console.log("UPLOADED"+respond);
       }
@@ -165,8 +166,8 @@ function RegisterProjectCtrl($scope, Project, Categorie, $routeParams,$location)
 		project.Path_Code_Demo = 'dfghjkl';
 		Project.save(project, function(respond){
 			if(respond.success !== undefined){
-				$location.path('/upload/' +$routeParams.projectId);
-				console.log('success');
+				$location.path('/upload/' + respond.ID_Projet);
+				console.log(respond);
 			}
 		});
 	}

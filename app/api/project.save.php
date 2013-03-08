@@ -28,7 +28,7 @@ $sql   =  " INSERT INTO Projet ( Titre_Projet, Path_Projet, Prix_projet, Path_Co
 // check the insert
 
 if(mysqli_query( $db_conx,$sql )){
-    echo json_encode(array('success' => 'Projet Uploadé :-) ', 'ID_Projet' => ' mysqli_insert_id( $db_conx ) ')) ;
+    echo json_encode(array('success' => 'Projet Uploadé :-) ', 'ID_Projet' =>  mysqli_insert_id( $db_conx ) )) ;
 }
 else{
     echo json_encode(array('error' => 'Erreur d\'insertion')) ;
