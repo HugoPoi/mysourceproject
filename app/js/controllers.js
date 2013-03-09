@@ -63,12 +63,17 @@ function ProjectDetailCtrl($scope, $routeParams, Project, $location, Achat) {
 	$scope.resetcom = function(com){ $scope.com="";}
 	
 	function convertstar(val){
-		val = Math.round(val);
+		val = Math.round(val*2);
      var ratingtab = [];
 			for(var j=0;j<5;j++)
 			{			
-				if((5-j) <= val ) ratingtab[j]=1;
-        else ratingtab[j]=0;
+        console.log('indice'+((5-j) <= (val/2))+';val:'+val+';pair:'+ (val%2==0) );
+				if((5-j) <= Math.round(val/2)){
+          if(val%2==1 && !first) ratingtab[j]='active-half-star';
+          else ratingtab[j]='active-star';
+          var first = true;
+        }
+        else ratingtab[j]='';
       }
       return ratingtab;
 	}

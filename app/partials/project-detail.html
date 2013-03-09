@@ -2,7 +2,7 @@
 	<div class="span2"><img ng-src="img/project/{{project.ID_Projet}}.jpg"/>
 		<p> {{project.note}}</p>Note :
 	<form >	
-		<span class="rating"><span class="star" ng-repeat="star in rating" ng-click="mark($index)" ng-class="{'active-star' : star}"></span></span>
+		<span class="rating"><span class="star {{star}}" ng-repeat="star in rating" ng-click="mark($index)" ></span></span>
 		
 		Prix :<p> {{project.Prix_projet}} €</p>
 		<button ng-click="buy()" class="btn">{{button}}</button>

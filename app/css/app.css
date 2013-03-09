@@ -135,6 +135,11 @@ nav a {
 	content: "\f005";
 	color: #e3cf7a;
 }
+.rating span.active-half-star:before{ 
+	content: "\f089";
+	color: #e3cf7a;
+}
+
 .main{padding:5px;}
 
 .carousel-control {
